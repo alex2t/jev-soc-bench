@@ -10,6 +10,7 @@
     "bench": "node --env-file-if-exists=.env bench/run.js",
     "bench:mock": "node bench/run.js --mock --yes",
     "test": "node --test \"tests/**/*.test.js\"",
+    "check:dataset": "node bench/check-dataset.js",
     "screenshots": "node scripts/screenshots.js"
   },
   "devDependencies": { "@playwright/test": "^1.55.0" }
