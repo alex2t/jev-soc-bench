@@ -96,6 +96,7 @@ function planLines(opts, inputs, models, missing) {
   const perProvider = alerts.length * opts.repeats;
   return [
     opts.mock ? 'Mode: MOCK (no model is called, no key needed)' : 'Mode: LIVE (paid calls through OpenRouter)',
+    `Label: ${opts.label ?? 'none'}`,
     `Alerts: ${alerts.length} (${alerts[0].id} .. ${alerts.at(-1).id}), repeats ${opts.repeats}, concurrency ${opts.concurrency}, seed ${opts.seed}`,
     ...opts.providers.map(p => `  ${p}: ${perProvider} calls + 1 warm-up, model ${models[p] ?? 'MISSING'}`),
     `Total calls: ${opts.providers.length * (perProvider + 1)}`,
