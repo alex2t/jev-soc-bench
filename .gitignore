@@ -1,0 +1,21 @@
+# Secrets and local-only working files - never commit
+.env
+.env.*
+!.env.example
+plan.md
+PLAN.md
+issue.md
+ISSUE.md
+
+# Dependencies
+node_modules/
+
+# Benchmark output: only the run chosen for the README is committed
+results/*.json
+!results/published/
+
+# Playwright and OS clutter
+test-results/
+playwright-report/
+.DS_Store
+Thumbs.db
