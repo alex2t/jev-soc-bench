@@ -19,3 +19,6 @@ test-results/
 playwright-report/
 .DS_Store
 Thumbs.db
+
+# Tests are local only (owner decision 2026-10-03); history before this keeps them
+tests/
