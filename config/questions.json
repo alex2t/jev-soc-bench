@@ -19,7 +19,7 @@
   },
   "blast_radius": {
     "type": "score",
-    "instructions": "How severe is the potential impact if this activity is malicious?",
+    "instructions": "How severe is the realistic impact of the activity in this alert, judged from the evidence shown? Verified routine or expected activity has negligible impact.",
     "criteria": [
       "Negligible: routine or self-contained, no realistic impact",
       "Low: one unprivileged user or workstation affected",
