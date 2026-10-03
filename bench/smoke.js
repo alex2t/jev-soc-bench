@@ -63,7 +63,7 @@ function describeKeys(value) {
   return `${typeof value} ${JSON.stringify(value)}`;
 }
 
-function checklist(questions, jev, llm) {
+function checklist(questions, jev, llm, mock) {
   const lines = [];
   const jevRaw = jev.result?.raw;
   const llmRaw = llm.result?.raw;
@@ -80,7 +80,8 @@ function checklist(questions, jev, llm) {
   if (llmRaw) {
     const n = normalise(() => normaliseLlm(questions, llm.result.text));
     lines.push(`3  Chat usage fields: ${describeKeys(llmRaw.usage)}; cost ${typeof llmRaw.usage?.cost === 'number' ? 'present' : 'MISSING'}`);
-    lines.push(`5  Strict json_schema accepted (no 400); output ${n.ok ? 'accepted by normaliseLlm' : `REJECTED, ${n.error}`}`);
+    const schema = mock ? 'Strict json_schema: not checked (mock, no request sent)' : 'Strict json_schema accepted (no 400)';
+    lines.push(`5  ${schema}; output ${n.ok ? 'accepted by normaliseLlm' : `REJECTED, ${n.error}`}`);
     if (n.ok) lines.push(`   normalised: ${JSON.stringify(n.value)}`);
   } else {
     lines.push(`3,5 LLM: no response (${llm.error})`);
@@ -99,8 +100,8 @@ async function main() {
   printCall('Jev', s.jevModel, jev, s.apiKey);
   const llm = await attempt(() => s.llm({ ...base, model: s.llmModel }));
   printCall('LLM', s.llmModel, llm, s.apiKey);
-  console.log('\n=== Checklist (plan.md section 5) ===');
-  for (const line of checklist(questions, jev, llm)) console.log(redact(line, s.apiKey));
+  console.log(`\n=== Checklist (plan.md section 5)${mock ? ' - MOCK: nothing below was checked against OpenRouter' : ''} ===`);
+  for (const line of checklist(questions, jev, llm, mock)) console.log(redact(line, s.apiKey));
   if (jev.error || llm.error) process.exitCode = 1;
 }
 
