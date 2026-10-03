@@ -152,6 +152,33 @@ describe('provider error classification (F-8)', () => {
       await assert.rejects(call(args(failingBody(timeoutError()), model)), { kind: 'timeout' });
     });
 
+    test(`${name}: a refused or failed connection is an http_error with no status (F-19)`, async () => {
+      const refused = async () => { throw new TypeError('fetch failed', { cause: new Error('connect ECONNREFUSED 203.0.113.1:443') }); };
+      await assert.rejects(call(args(refused, model)), err => {
+        assert.equal(err.kind, 'http_error');
+        assert.equal(err.status, null);
+        assert.equal(err.message, `${name} network error`);
+        assert.ok(err.latencyMs >= 0);
+        assert.ok(!err.message.includes('203.0.113.1'), 'upstream detail leaked');
+        return true;
+      });
+    });
+
+    test(`${name}: a connection dropped while reading the body is an http_error (F-19)`, async () => {
+      const dropped = new TypeError('terminated', { cause: Object.assign(new Error('other side closed'), { code: 'UND_ERR_SOCKET' }) });
+      await assert.rejects(call(args(failingBody(dropped), model)),
+        { kind: 'http_error', status: null, message: `${name} network error` });
+    });
+
+    test(`${name}: other errors, such as a bad URL, propagate unchanged and unclassified`, async () => {
+      const badUrl = async () => { throw new TypeError('Failed to parse URL from not a url'); };
+      await assert.rejects(call(args(badUrl, model)), err => {
+        assert.equal(err.message, 'Failed to parse URL from not a url');
+        assert.equal(err.kind, undefined);
+        return true;
+      });
+    });
+
     test(`${name}: a body that is not JSON is a schema_error with latency`, async () => {
       await assert.rejects(call(args(failingBody(new SyntaxError('Unexpected token <')), model)), err => {
         assert.equal(err.kind, 'schema_error');
