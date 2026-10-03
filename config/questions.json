@@ -1,0 +1,30 @@
+{
+  "queue": {
+    "type": "choice",
+    "instructions": "Which SOC investigation queue should triage this alert?",
+    "criteria": {
+      "cloud_iam": "Credential abuse, privilege escalation, unauthorised API keys, IAM policy or role changes",
+      "network_ddos": "Volumetric traffic anomalies, SYN floods, port scans, WAF rate-limit triggers",
+      "endpoint_malware": "Malicious processes, reverse shells, memory injection, ransomware behaviour on a host",
+      "benign_noise": "Verified internal automation, approved scans, backups, health checks, expected load"
+    }
+  },
+  "quarantine": {
+    "type": "noul",
+    "instructions": "Should the source entity be automatically blocked or its credentials revoked right now?",
+    "criteria": {
+      "true": "Active or imminent compromise where blocking now prevents further damage",
+      "false": "Suspicious but containable, expected activity, or not enough evidence to justify an automatic block"
+    }
+  },
+  "blast_radius": {
+    "type": "score",
+    "instructions": "How severe is the potential impact if this activity is malicious?",
+    "criteria": [
+      "Negligible: routine or self-contained, no realistic impact",
+      "Low: one unprivileged user or workstation affected",
+      "Moderate: multiple users, service degradation, or a lateral movement attempt",
+      "Critical: admin or root credentials, production database, or wide compromise"
+    ]
+  }
+}
