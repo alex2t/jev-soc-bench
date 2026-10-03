@@ -1,8 +1,8 @@
 /** Generative LLM through OpenRouter Chat Completions with a strict JSON schema. */
 
-import { performance } from 'node:perf_hooks';
 import { answerSchema } from '../engine.js';
-import { providerError, normaliseUsage } from './jev.js';
+import { postJson } from './http.js';
+import { normaliseUsage } from './jev.js';
 
 const CHAT_URL = 'https://openrouter.ai/api/v1/chat/completions';
 
@@ -16,34 +16,22 @@ export const SYSTEM = [
 ].join(' ');
 
 export async function callLlm({ state, questions, model, apiKey, fetchImpl = fetch, timeoutMs = 45_000 }) {
-  const started = performance.now();
-  const res = await fetchImpl(CHAT_URL, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      'Content-Type': 'application/json',
-      'X-Title': 'jev-soc-bench',
+  const body = {
+    model,
+    temperature: 0,
+    messages: [
+      { role: 'system', content: SYSTEM },
+      { role: 'user', content: JSON.stringify({ state, questions }) },
+    ],
+    response_format: {
+      type: 'json_schema',
+      json_schema: { name: 'decisions', strict: true, schema: answerSchema(questions) },
     },
-    body: JSON.stringify({
-      model,
-      temperature: 0,
-      messages: [
-        { role: 'system', content: SYSTEM },
-        { role: 'user', content: JSON.stringify({ state, questions }) },
-      ],
-      response_format: {
-        type: 'json_schema',
-        json_schema: { name: 'decisions', strict: true, schema: answerSchema(questions) },
-      },
-      // Only route to providers that honour response_format.
-      provider: { require_parameters: true },
-      usage: { include: true },
-    }),
-    signal: AbortSignal.timeout(timeoutMs),
-  });
-  if (!res.ok) throw providerError('llm', res.status, performance.now() - started);
-  const raw = await res.json();
-  const latencyMs = performance.now() - started;
+    // Only route to providers that honour response_format.
+    provider: { require_parameters: true },
+    usage: { include: true },
+  };
+  const { raw, latencyMs } = await postJson('llm', CHAT_URL, { apiKey, body, fetchImpl, timeoutMs });
   const text = raw.choices?.[0]?.message?.content ?? null;
   return { raw, text, latencyMs, model: raw.model ?? model, usage: normaliseUsage(raw.usage) };
 }

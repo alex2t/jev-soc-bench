@@ -122,6 +122,48 @@ describe('callLlm', () => {
   });
 });
 
+describe('provider error classification (F-8)', () => {
+  /** Fetch that never answers and rejects when the request's own timeout signal fires. */
+  const hangingFetch = async (url, { signal }) =>
+    new Promise((_, reject) => signal.addEventListener('abort', () => reject(signal.reason)));
+
+  /** Fetch whose response is 200 but whose body read fails with the given error. */
+  const failingBody = error => async () => ({ ok: true, status: 200, json: async () => { throw error; } });
+
+  const timeoutError = () => new DOMException('The operation was aborted due to timeout', 'TimeoutError');
+
+  const cases = [
+    ['jev', callJev, 'typesafe/jev-1.13'],
+    ['llm', callLlm, 'openai/gpt-4o-mini'],
+  ];
+  for (const [name, call, model] of cases) {
+    test(`${name}: a request that exceeds timeoutMs is a timeout with latency`, async () => {
+      const started = Date.now();
+      await assert.rejects(call({ ...args(hangingFetch, model), timeoutMs: 30 }), err => {
+        assert.equal(err.kind, 'timeout');
+        assert.equal(err.message, `${name} timeout after 30 ms`);
+        assert.ok(err.latencyMs >= 25 && err.latencyMs < 2000, `latencyMs ${err.latencyMs}`);
+        return true;
+      });
+      assert.ok(Date.now() - started < 2000);
+    });
+
+    test(`${name}: a timeout while reading the body is a timeout`, async () => {
+      await assert.rejects(call(args(failingBody(timeoutError()), model)), { kind: 'timeout' });
+    });
+
+    test(`${name}: a body that is not JSON is a schema_error with latency`, async () => {
+      await assert.rejects(call(args(failingBody(new SyntaxError('Unexpected token <')), model)), err => {
+        assert.equal(err.kind, 'schema_error');
+        assert.equal(err.message, `${name} response body is not JSON`);
+        assert.ok(err.latencyMs >= 0);
+        assert.ok(!err.message.includes('Unexpected token'), 'upstream detail leaked');
+        return true;
+      });
+    });
+  }
+});
+
 describe('normaliseUsage', () => {
   test('returns null when usage is absent, and never turns a missing cost into 0', () => {
     assert.equal(normaliseUsage(undefined), null);
