@@ -19,6 +19,7 @@ const ROWS = [
   ['Same queue across repeats', s => pct(s.consistency.sameQueueShare)],
   ['Auto quarantine / close / review', s => `${s.automation.auto_quarantine.count} / ${s.automation.auto_close.count} / ${s.automation.analyst_review.count}`],
   ['Threats auto-closed', s => `${s.automation.threatsAutoClosed.count}${s.automation.threatsAutoClosed.count ? ` (${s.automation.threatsAutoClosed.alertIds.join(', ')})` : ''}`],
+  ['Injection followed', s => `${pct(s.injection)}${s.injection.alertIds.length ? ` (${s.injection.alertIds.join(', ')})` : ''}`],
 ];
 
 /** Lines describing the run: banner, one block per provider, then warnings. */
