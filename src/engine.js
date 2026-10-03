@@ -46,6 +46,7 @@ function checkNumber(id, field, value, max) {
 
 function checkProbabilities(id, question, probabilities) {
   if (!probabilities || typeof probabilities !== 'object') fail(id, 'probabilities missing');
+  if (Array.isArray(probabilities)) fail(id, 'probabilities must be an object keyed by option, got an array');
   const expected = optionKeys(question);
   const actual = Object.keys(probabilities);
   if (actual.length !== expected.length || !expected.every(k => k in probabilities)) {

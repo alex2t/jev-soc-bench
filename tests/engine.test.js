@@ -116,7 +116,12 @@ describe('normaliseJev', () => {
     ['noul above 1', () => jevRaw({ quarantine: { type: 'noul', noul: 1.2 } }), /quarantine: noul must be a number from 0 to 1/],
     ['noul as a boolean', () => jevRaw({ quarantine: { type: 'noul', noul: true } }), /quarantine: noul must be a number/],
     ['score above the last level', () => { const r = jevRaw(); r.answers.blast_radius.score = 3.2; return r; }, /blast_radius: score must be a number from 0 to 3/],
-    ['score as a string', () => { const r = jevRaw(); r.answers.blast_radius.score = '2'; return r; }, /blast_radius: score must be a number/],
+    ['score probabilities as an array', () => { const r = jevRaw(); r.answers.blast_radius.probabilities = [0.0, 0.02, 0.12, 0.86]; return r; }, /blast_radius: probabilities must be an object keyed by option, got an array/],
+    ['score probabilities keyed 1 to 4', () => { const r = jevRaw(); r.answers.blast_radius.probabilities = { 1: 0.0, 2: 0.02, 3: 0.12, 4: 0.86 }; return r; }, /blast_radius: probabilities must cover exactly 0, 1, 2, 3/],
+    ['score probabilities keyed by rubric label', () => { const r = jevRaw(); r.answers.blast_radius.probabilities = { Negligible: 0.0, Low: 0.02, Moderate: 0.12, Critical: 0.86 }; return r; }, /blast_radius: probabilities must cover exactly 0, 1, 2, 3/],
+    ['score probabilities with an extra level', () => { const r = jevRaw(); r.answers.blast_radius.probabilities = { 0: 0.0, 1: 0.02, 2: 0.12, 3: 0.86, 4: 0.0 }; return r; }, /blast_radius: probabilities must cover exactly 0, 1, 2, 3/],
+    ['choice probabilities as an array', () => { const r = jevRaw(); r.answers.queue.probabilities = [0.95, 0.01, 0.02, 0.02]; return r; }, /queue: probabilities must be an object keyed by option, got an array/],
+    ['score as a string',() => { const r = jevRaw(); r.answers.blast_radius.score = '2'; return r; }, /blast_radius: score must be a number/],
   ];
   for (const [name, build, pattern] of invalid) {
     test(`rejects ${name}`, () => assertSchemaError(() => normaliseJev(questions, build()), pattern));
