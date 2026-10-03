@@ -9,9 +9,14 @@ function git(...args) {
   return execFileSync('git', args, { encoding: 'utf8' });
 }
 
-/** Files that are committed or could be committed: tracked plus untracked-not-ignored. */
+function lines(text) {
+  return text.split('\n').filter(Boolean);
+}
+
+/** Files on disk that are committed or could be committed: tracked plus untracked-not-ignored. */
 function committableFiles() {
-  return git('ls-files', '--cached', '--others', '--exclude-standard').split('\n').filter(Boolean);
+  const deleted = new Set(lines(git('ls-files', '--deleted')));
+  return lines(git('ls-files', '--cached', '--others', '--exclude-standard')).filter(f => !deleted.has(f));
 }
 
 test('key pattern detects an OpenRouter-shaped key', () => {
@@ -29,6 +34,6 @@ test('no committable file contains an OpenRouter key', () => {
 });
 
 test('.env, plan.md and issue.md are git-ignored', () => {
-  const ignored = git('check-ignore', '.env', 'plan.md', 'issue.md').split('\n').filter(Boolean);
+  const ignored = lines(git('check-ignore', '.env', 'plan.md', 'issue.md'));
   assert.deepEqual(ignored, ['.env', 'plan.md', 'issue.md']);
 });
