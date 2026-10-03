@@ -37,7 +37,15 @@ function checkExpected(expected, questions) {
   return errors;
 }
 
-function checkState(state, tags) {
+/**
+ * Snake_case label identifiers (queue keys and question IDs such as blast_radius). They cannot
+ * occur in a real log by chance, so their presence gives the label away.
+ */
+function labelNames(questions) {
+  return [...Object.keys(questions.queue.criteria), ...Object.keys(questions)].filter(k => k.includes('_'));
+}
+
+function checkState(state, tags, names) {
   if (!state || typeof state !== 'object') return ['state missing'];
   const errors = [];
   for (const key of keysDeep(state)) {
@@ -53,6 +61,11 @@ function checkState(state, tags) {
   const injected = tags.some(t => INJECTION_TAGS.includes(t));
   const word = text.match(VERDICT_WORDS);
   if (word && !injected) errors.push(`state contains verdict word "${word[0]}"`);
+  for (const name of names) {
+    if (!injected && new RegExp(`(?<![A-Za-z0-9_])${name}(?![A-Za-z0-9_])`).test(text)) {
+      errors.push(`state contains label name "${name}"`);
+    }
+  }
   return errors;
 }
 
@@ -64,7 +77,7 @@ function checkAlert(alert, questions) {
   if (!DIFFICULTIES.includes(alert.difficulty)) errors.push(`difficulty ${JSON.stringify(alert.difficulty)} is unknown`);
   if (!Array.isArray(alert.tags) || !tags.every(t => typeof t === 'string')) errors.push('tags must be an array of strings');
   if (typeof alert.rationale !== 'string' || !alert.rationale) errors.push('rationale missing');
-  return [...errors, ...checkExpected(alert.expected, questions), ...checkState(alert.state, tags)];
+  return [...errors, ...checkExpected(alert.expected, questions), ...checkState(alert.state, tags, labelNames(questions))];
 }
 
 /** Return every problem found, as "ID: message" strings. Empty means valid. */
