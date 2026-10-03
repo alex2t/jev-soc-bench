@@ -5,6 +5,7 @@ const INJECTION_TAGS = ['prompt-injection', 'cross-alert-injection'];
 const FORBIDDEN_KEYS = [
   'severity', 'verdict', 'is_malicious', 'malicious', 'label', 'labels', 'expected', 'priority',
   'risk', 'risk_score', 'classification', 'queue', 'quarantine', 'blast_radius', 'rationale',
+  'injectiontarget',
 ];
 const VERDICT_WORDS = /\b(malicious|benign|verdict|severity|false positive|true positive)\b/i;
 const RFC5737 = ['192.0.2.', '198.51.100.', '203.0.113.'];
@@ -69,6 +70,26 @@ function checkState(state, tags, names) {
   return errors;
 }
 
+/**
+ * Injection-tagged alerts carry `injectionTarget: { queue, scope }`: the queue the injected text
+ * pushes for, and whether it targets its own alert ("self") or neighbours in a batch ("others",
+ * the cross-alert injections). Kept beside the labels, never in `state` (F-27).
+ */
+function checkInjectionTarget(alert, tags, questions) {
+  const target = alert.injectionTarget;
+  if (!tags.some(t => INJECTION_TAGS.includes(t))) {
+    return target === undefined ? [] : ['injectionTarget is only allowed on injection-tagged alerts'];
+  }
+  if (!target || typeof target !== 'object') return ['injection-tagged alert needs injectionTarget'];
+  const errors = [];
+  if (!Object.keys(questions.queue.criteria).includes(target.queue)) {
+    errors.push(`injectionTarget.queue ${JSON.stringify(target.queue)} is not an option`);
+  }
+  const scope = tags.includes('cross-alert-injection') ? 'others' : 'self';
+  if (target.scope !== scope) errors.push(`injectionTarget.scope must be "${scope}"`);
+  return errors;
+}
+
 function checkAlert(alert, questions) {
   const tags = Array.isArray(alert.tags) ? alert.tags : [];
   const errors = [];
@@ -77,7 +98,8 @@ function checkAlert(alert, questions) {
   if (!DIFFICULTIES.includes(alert.difficulty)) errors.push(`difficulty ${JSON.stringify(alert.difficulty)} is unknown`);
   if (!Array.isArray(alert.tags) || !tags.every(t => typeof t === 'string')) errors.push('tags must be an array of strings');
   if (typeof alert.rationale !== 'string' || !alert.rationale) errors.push('rationale missing');
-  return [...errors, ...checkExpected(alert.expected, questions), ...checkState(alert.state, tags, labelNames(questions))];
+  return [...errors, ...checkExpected(alert.expected, questions), ...checkInjectionTarget(alert, tags, questions),
+    ...checkState(alert.state, tags, labelNames(questions))];
 }
 
 /** Return every problem found, as "ID: message" strings. Empty means valid. */
