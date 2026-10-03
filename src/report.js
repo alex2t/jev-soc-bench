@@ -30,7 +30,13 @@ export function formatSummary({ meta, summary }) {
   if (meta.stoppedByUnknownCost) lines.push('STOPPED: a response arrived without a cost, so the budget could not be enforced.');
   for (const [provider, s] of Object.entries(summary.providers)) {
     lines.push('', `${provider} (requested ${meta.requestedModels[provider]}, returned ${(meta.returnedModels[provider] ?? []).join(', ') || 'none'})`);
-    for (const [label, format] of ROWS) lines.push(`  ${label.padEnd(34)} ${format(s)}`);
+    for (const [label, format] of ROWS) {
+      lines.push(`  ${label.padEnd(34)} ${format(s)}`);
+      if (label !== 'Latency p50 / p95') continue;
+      for (const [name, l] of Object.entries(s.latencyMs.byUpstream)) {
+        lines.push(`    ${`upstream ${name}`.padEnd(32)} ${ms(l.p50)} / ${ms(l.p95)} (n=${l.n})`);
+      }
+    }
   }
   lines.push('', summary.warnings.length ? 'Warnings:' : 'Warnings: none');
   for (const w of summary.warnings) lines.push(`  WARNING ${w}`);

@@ -80,9 +80,18 @@ function byDifficulty(ok, alerts) {
   }));
 }
 
-function latency(ok) {
-  const values = ok.map(r => r.latencyMs);
+function latencyStats(records) {
+  const values = records.map(r => r.latencyMs);
   return { p50: percentile(values, 50), p95: percentile(values, 95), n: values.length };
+}
+
+/** Latency over ok calls, also split by the upstream OpenRouter routed each call to (F-26). */
+function latency(ok) {
+  const byUpstream = {};
+  for (const name of [...new Set(ok.map(r => r.upstreamProvider).filter(u => u != null))].sort()) {
+    byUpstream[name] = latencyStats(ok.filter(r => r.upstreamProvider === name));
+  }
+  return { ...latencyStats(ok), byUpstream, unknownUpstream: ok.filter(r => r.upstreamProvider == null).length };
 }
 
 /** Cost over calls that reported one; calls without a cost are counted, never treated as 0. */
