@@ -1,0 +1,5 @@
+{
+  "minQueueConfidence": 0.6,
+  "autoQuarantineAt": 0.9,
+  "autoCloseBelow": 0.1
+}
