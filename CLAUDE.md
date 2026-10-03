@@ -7,6 +7,11 @@ The full specification is `plan.md` at the repository root. Read it before start
 work. Build milestone by milestone (plan.md section 10) and stop at the end of each
 milestone to report. `plan.md` is local only and is never committed.
 
+You maintain plan.md: keep it in line with the code and with decisions I have approved,
+and add a revision note at the top for every change, citing the F-numbers involved.
+Never change plan.md to match code that contradicts it without my approval; log the
+disagreement in issue.md instead.
+
 ---
 
 ## 1. Hard rules
