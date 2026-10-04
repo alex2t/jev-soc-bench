@@ -104,7 +104,16 @@ function cost(records) {
     per1000AlertsUsd: meanPerCall === null ? null : meanPerCall * 1000,
     knownCalls: known.length,
     unknownCalls: records.length - known.length,
+    cachedInput: cachedInput(records),
   };
+}
+
+/** Share of input tokens billed as cached, over calls that reported a cache figure (F-43). */
+function cachedInput(records) {
+  const reported = records.filter(r => typeof r.usage?.cachedInputTokens === 'number' && typeof r.usage?.inputTokens === 'number');
+  const sum = key => (reported.length ? reported.reduce((s, r) => s + r.usage[key], 0) : null);
+  const [cachedTokens, inputTokens] = [sum('cachedInputTokens'), sum('inputTokens')];
+  return { share: inputTokens ? cachedTokens / inputTokens : null, cachedTokens, inputTokens, n: reported.length, unknownCalls: records.length - reported.length };
 }
 
 /** Hidden reasoning tokens per call over calls that reported them (F-34); never assumed 0. */

@@ -15,7 +15,8 @@ const ROWS = [
   ['Blast radius exact', s => pct(s.blastRadius.exactAccuracy)],
   ['Blast radius MAE', s => num(s.blastRadius.meanAbsError)],
   ['Latency p50 / p95', s => `${ms(s.latencyMs.p50)} / ${ms(s.latencyMs.p95)} (n=${s.latencyMs.n})`],
-  ['Cost per 1,000 alerts', s => `${usd(s.cost.per1000AlertsUsd)} (known ${s.cost.knownCalls}, unknown ${s.cost.unknownCalls})`],
+  ['Cost per 1,000 alerts', s => `${usd(s.cost.per1000AlertsUsd)} (known ${s.cost.knownCalls}, unknown ${s.cost.unknownCalls})`
+    + (s.cost.cachedInput?.share == null ? '' : `, ${(s.cost.cachedInput.share * 100).toFixed(1)}% of input tokens cached`)],
   ['Reasoning tokens per call', s => (s.reasoningTokens.n === 0
     ? `not reported (0 of ${s.reasoningTokens.unknownCalls} calls)`
     : `${Math.round(s.reasoningTokens.meanPerCall)} (n=${s.reasoningTokens.n})`)],
