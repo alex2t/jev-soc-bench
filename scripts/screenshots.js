@@ -16,6 +16,8 @@ const SHOTS = {
   'difficulty.png': 'section:has(#difficulty)',
   'latency.png': 'section:has(#latency)',
   'automation.png': 'section:has(#automation)',
+  'batching.png': 'section:has(#batching-body)',
+  'contamination.png': 'section:has(#contamination-body)',
 };
 
 async function capture(baseUrl, outDir) {
