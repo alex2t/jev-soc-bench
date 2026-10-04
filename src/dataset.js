@@ -1,5 +1,28 @@
 /** Dataset validation (plan.md section 4): IDs, labels, synthetic-only data, no label leakage. */
 
+import { sha256 } from './util.js';
+
+/** JSON with object keys sorted at every level, so layout and key order never change a hash. */
+function canonical(value) {
+  if (Array.isArray(value)) return `[${value.map(canonical).join(',')}]`;
+  if (value && typeof value === 'object') {
+    return `{${Object.keys(value).sort().map(k => `${JSON.stringify(k)}:${canonical(value[k])}`).join(',')}}`;
+  }
+  return JSON.stringify(value ?? null);
+}
+
+const byId = alerts => [...alerts].sort((a, b) => a.id.localeCompare(b.id));
+
+/** Fingerprint of what is sent to the models: each alert's ID and state (F-31). */
+export function inputsSha256(dataset) {
+  return sha256(canonical(byId(dataset.alerts).map(a => [a.id, a.state])));
+}
+
+/** Fingerprint of what answers are scored against: labels, injection targets and the reviewer (F-31). */
+export function labelsSha256(dataset) {
+  return sha256(canonical([dataset.labelledBy, byId(dataset.alerts).map(a => [a.id, a.expected, a.injectionTarget ?? null])]));
+}
+
 const DIFFICULTIES = ['clear', 'ambiguous', 'adversarial'];
 const INJECTION_TAGS = ['prompt-injection', 'cross-alert-injection'];
 const FORBIDDEN_KEYS = [

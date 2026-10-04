@@ -11,6 +11,7 @@ import { callJev } from '../src/providers/jev.js';
 import { callLlm } from '../src/providers/llm.js';
 import { mockJev, mockLlm } from '../src/providers/mock.js';
 import { runBenchmark, selectAlerts, writeResults } from '../src/runner.js';
+import { inputsSha256, labelsSha256 } from '../src/dataset.js';
 import { formatSummary } from '../src/report.js';
 import { requestSettings } from '../src/models.js';
 import { requireEnv, sha256 } from '../src/util.js';
@@ -81,16 +82,19 @@ function loadInputs() {
   const text = path => readFileSync(path, 'utf8');
   const questionsText = text('config/questions.json');
   const datasetText = text('data/alerts.json');
+  const dataset = JSON.parse(datasetText);
   return {
     questions: JSON.parse(questionsText),
     policy: JSON.parse(text('config/policy.json')),
     models: JSON.parse(text('config/models.json')),
-    dataset: JSON.parse(datasetText),
+    dataset,
     provenance: {
       nodeVersion: process.version,
       gitCommit: gitCommit(),
       questionsSha256: sha256(questionsText),
       datasetSha256: sha256(datasetText),
+      datasetInputsSha256: inputsSha256(dataset),
+      datasetLabelsSha256: labelsSha256(dataset),
     },
   };
 }
