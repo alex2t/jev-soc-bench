@@ -8,6 +8,7 @@ import { callJev } from '../src/providers/jev.js';
 import { callLlm } from '../src/providers/llm.js';
 import { mockJev, mockLlm } from '../src/providers/mock.js';
 import { normaliseJev, normaliseLlm } from '../src/engine.js';
+import { requestSettings } from '../src/models.js';
 import { requireEnv } from '../src/util.js';
 
 // SEC-0001 from plan.md section 4; the dataset itself arrives in M3.
@@ -23,7 +24,8 @@ const STATE = {
 function settings(mock) {
   if (mock) return { apiKey: null, jevModel: 'MOCK', llmModel: 'MOCK', jev: mockJev, llm: mockLlm };
   const env = requireEnv(process.env, ['OPENROUTER_API_KEY', 'JEV_MODEL', 'LLM_MODEL']);
-  return { apiKey: env.OPENROUTER_API_KEY, jevModel: env.JEV_MODEL, llmModel: env.LLM_MODEL, jev: callJev, llm: callLlm };
+  const llmSettings = requestSettings(JSON.parse(readFileSync('config/models.json', 'utf8')), env.LLM_MODEL);
+  return { apiKey: env.OPENROUTER_API_KEY, jevModel: env.JEV_MODEL, llmModel: env.LLM_MODEL, llmSettings, jev: callJev, llm: callLlm };
 }
 
 function redact(text, apiKey) {
@@ -98,7 +100,7 @@ async function main() {
   console.log(mock ? 'MOCK smoke test: no model is called.' : 'Live smoke test: 2 paid calls.');
   const jev = await attempt(() => s.jev({ ...base, model: s.jevModel }));
   printCall('Jev', s.jevModel, jev, s.apiKey);
-  const llm = await attempt(() => s.llm({ ...base, model: s.llmModel }));
+  const llm = await attempt(() => s.llm({ ...base, model: s.llmModel, settings: s.llmSettings }));
   printCall('LLM', s.llmModel, llm, s.apiKey);
   console.log(`\n=== Checklist (plan.md section 5)${mock ? ' - MOCK: nothing below was checked against OpenRouter' : ''} ===`);
   for (const line of checklist(questions, jev, llm, mock)) console.log(redact(line, s.apiKey));

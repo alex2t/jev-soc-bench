@@ -105,7 +105,7 @@ export async function runBenchmark({ questions, policy, dataset, providers, mode
   checkPolicy(policy);
   answerSchema(questions);
 
-  const { repeats, concurrency, maxUsd, seed, mock, label = null, alertIds = null, limit = null } = options;
+  const { repeats, concurrency, maxUsd, seed, mock, label = null, alertIds = null, limit = null, requestSettings = null } = options;
   const names = Object.keys(providers);
   const alerts = selectAlerts(dataset.alerts, { ids: alertIds, limit });
   const tasks = buildTasks(alerts, names, repeats, seed);
@@ -144,6 +144,7 @@ export async function runBenchmark({ questions, policy, dataset, providers, mode
     requestedModels: models,
     returnedModels: distinct(records, 'model'),
     returnedProviders: distinct(records, 'upstreamProvider'),
+    requestSettings,
     levelDerivation: LEVEL_DERIVATION,
     budgetGuard: mock ? 'off (mock)' : 'on',
     maxUsd: mock ? null : maxUsd,

@@ -15,10 +15,15 @@ export const SYSTEM = [
   'Return only a JSON object mapping question IDs to values. No prose.',
 ].join(' ');
 
-export async function callLlm({ state, questions, model, apiKey, fetchImpl = fetch, timeoutMs = 45_000 }) {
+/**
+ * One chat completion with the strict answer schema. `settings` are the model's request
+ * settings from config/models.json (for example temperature or reasoning_effort), sent as given.
+ */
+export async function callLlm({ state, questions, model, apiKey, settings, fetchImpl = fetch, timeoutMs = 45_000 }) {
+  if (!settings) throw new Error(`callLlm needs request settings for ${model}`);
   const body = {
     model,
-    temperature: 0,
+    ...settings,
     messages: [
       { role: 'system', content: SYSTEM },
       { role: 'user', content: JSON.stringify({ state, questions }) },

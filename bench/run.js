@@ -10,6 +10,7 @@ import { callLlm } from '../src/providers/llm.js';
 import { mockJev, mockLlm } from '../src/providers/mock.js';
 import { runBenchmark, selectAlerts, writeResults } from '../src/runner.js';
 import { formatSummary } from '../src/report.js';
+import { requestSettings } from '../src/models.js';
 import { requireEnv, sha256 } from '../src/util.js';
 
 const ENV = ['OPENROUTER_API_KEY', 'JEV_MODEL', 'LLM_MODEL'];
@@ -81,6 +82,7 @@ function loadInputs() {
   return {
     questions: JSON.parse(questionsText),
     policy: JSON.parse(text('config/policy.json')),
+    models: JSON.parse(text('config/models.json')),
     dataset: JSON.parse(datasetText),
     provenance: {
       nodeVersion: process.version,
@@ -91,7 +93,17 @@ function loadInputs() {
   };
 }
 
-function planLines(opts, inputs, models, missing) {
+/** The LLM request settings for LLM_MODEL (F-33), or the reason there are none; null when no LLM call is planned. */
+function llmSettings(opts, inputs, env) {
+  if (opts.mock || !opts.providers.includes('llm') || !env.LLM_MODEL) return null;
+  try {
+    return { settings: requestSettings(inputs.models, env.LLM_MODEL) };
+  } catch (err) {
+    return { error: err.message };
+  }
+}
+
+function planLines(opts, inputs, models, missing, settings) {
   const alerts = selectAlerts(inputs.dataset.alerts, { ids: opts.alertIds, limit: opts.limit });
   const perProvider = alerts.length * opts.repeats;
   return [
@@ -99,6 +111,7 @@ function planLines(opts, inputs, models, missing) {
     `Label: ${opts.label ?? 'none'}`,
     `Alerts: ${alerts.length} (${alerts[0].id} .. ${alerts.at(-1).id}), repeats ${opts.repeats}, concurrency ${opts.concurrency}, seed ${opts.seed}`,
     ...opts.providers.map(p => `  ${p}: ${perProvider} calls + 1 warm-up, model ${models[p] ?? 'MISSING'}`),
+    ...(settings ? [settings.error ? `  ${settings.error}` : `  llm request settings: ${JSON.stringify(settings.settings)}`] : []),
     `Total calls: ${opts.providers.length * (perProvider + 1)}`,
     `Budget guard: ${opts.mock ? 'off (mock)' : `on, --max-usd ${opts.maxUsd}; stops on any response without a cost`}`,
     `Dataset sha256 ${inputs.provenance.datasetSha256.slice(0, 12)}, labelled by ${inputs.dataset.labelledBy ?? 'NOT REVIEWED'}`,
@@ -114,7 +127,7 @@ async function confirm(question) {
   return answer.trim().toLowerCase() === 'y';
 }
 
-function providerCalls(opts, env) {
+function providerCalls(opts, env, settings) {
   if (opts.mock) return { models: { jev: 'MOCK', llm: 'MOCK' }, calls: { jev: mockJev, llm: mockLlm } };
   const models = { jev: env.JEV_MODEL, llm: env.LLM_MODEL };
   const apiKey = env.OPENROUTER_API_KEY;
@@ -122,7 +135,7 @@ function providerCalls(opts, env) {
     models,
     calls: {
       jev: args => callJev({ ...args, model: models.jev, apiKey }),
-      llm: args => callLlm({ ...args, model: models.llm, apiKey }),
+      llm: args => callLlm({ ...args, model: models.llm, apiKey, settings }),
     },
   };
 }
@@ -132,22 +145,25 @@ async function main() {
   const inputs = loadInputs();
   const missing = opts.mock ? [] : ENV.filter(n => !process.env[n]);
   const shownModels = opts.mock ? { jev: 'MOCK', llm: 'MOCK' } : { jev: process.env.JEV_MODEL, llm: process.env.LLM_MODEL };
-  for (const line of planLines(opts, inputs, shownModels, missing)) console.log(line);
+  const settings = llmSettings(opts, inputs, process.env);
+  for (const line of planLines(opts, inputs, shownModels, missing, settings)) console.log(line);
   if (opts.dryRun) return console.log('Dry run: nothing was called and no file was written.');
 
   const env = opts.mock ? {} : requireEnv(process.env, ENV);
+  if (settings?.error) throw new Error(settings.error);
   if (!opts.yes && !(await confirm(opts.mock ? 'Proceed with the mock run? [y/N] ' : 'Proceed with these PAID calls? [y/N] '))) {
     console.log('Aborted: nothing was called.');
     process.exitCode = 1;
     return;
   }
-  const { models, calls } = providerCalls(opts, env);
+  const { models, calls } = providerCalls(opts, env, settings?.settings);
   const result = await runBenchmark({
     ...inputs,
     providers: Object.fromEntries(opts.providers.map(p => [p, calls[p]])),
     models: Object.fromEntries(opts.providers.map(p => [p, models[p]])),
     options: { repeats: opts.repeats, concurrency: opts.concurrency, maxUsd: opts.maxUsd, seed: opts.seed,
-      mock: opts.mock, label: opts.label, alertIds: opts.alertIds, limit: opts.limit },
+      mock: opts.mock, label: opts.label, alertIds: opts.alertIds, limit: opts.limit,
+      requestSettings: settings ? { llm: settings.settings } : null },
   });
   const path = writeResults(opts.out, result);
   console.log('');
