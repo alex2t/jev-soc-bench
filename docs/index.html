@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'">
+  <title>Jev SOC Benchmark</title>
+  <meta name="description" content="SOC alert triage benchmark: TypeSafe Jev compared with generative LLMs on 40 labelled synthetic alerts.">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="page-head">
+    <h1>SOC alert triage: TypeSafe Jev vs generative LLMs</h1>
+    <p class="lede">
+      40 labelled synthetic alerts, 3 repeats each, the same three questions sent to every model through
+      OpenRouter. Every number below is computed from the published call records.
+    </p>
+    <label class="view-picker">Runs shown
+      <select id="view"></select>
+    </label>
+    <p id="mock-banner" class="banner" hidden>Mock data. No model was called.</p>
+    <p id="status" class="status">Loading published runs...</p>
+  </header>
+
+  <main id="main" hidden>
+    <section id="cards" aria-labelledby="h-cards">
+      <h2 id="h-cards">Headline</h2>
+      <div class="cards" id="cards-body"></div>
+    </section>
+
+    <section aria-labelledby="h-difficulty">
+      <h2 id="h-difficulty">Queue accuracy by difficulty</h2>
+      <p class="note">Share of calls that chose the labelled investigation queue.</p>
+      <div class="chart" id="difficulty"></div>
+    </section>
+
+    <section aria-labelledby="h-latency">
+      <h2 id="h-latency">Latency per call</h2>
+      <p class="note">One dot per scored call, one row per model and upstream provider; the bar marks the median.</p>
+      <div class="chart" id="latency"></div>
+    </section>
+
+    <section aria-labelledby="h-calibration">
+      <h2 id="h-calibration">Calibration</h2>
+      <div class="chart" id="calibration"></div>
+    </section>
+
+    <section aria-labelledby="h-automation">
+      <h2 id="h-automation">Automation coverage</h2>
+      <p class="note">What the policy (config/policy.json) does with each answer: quarantine automatically, close automatically, or send to an analyst.</p>
+      <div class="chart" id="automation"></div>
+      <div id="threats"></div>
+    </section>
+
+    <section aria-labelledby="h-confusion">
+      <h2 id="h-confusion">Queue confusion matrices</h2>
+      <p class="note">Rows: labelled queue. Columns: queue the model chose. Counts of calls.</p>
+      <div class="matrices" id="confusion"></div>
+    </section>
+
+    <section aria-labelledby="h-alerts">
+      <h2 id="h-alerts">Per-alert answers</h2>
+      <div class="filters">
+        <label>Difficulty
+          <select id="filter-difficulty">
+            <option value="">All</option>
+            <option value="clear">Clear</option>
+            <option value="ambiguous">Ambiguous</option>
+            <option value="adversarial">Adversarial</option>
+          </select>
+        </label>
+        <label><input type="checkbox" id="filter-disagree"> Only alerts with a wrong answer</label>
+      </div>
+      <div class="table-wrap" id="alerts"></div>
+    </section>
+
+    <section aria-labelledby="h-method">
+      <h2 id="h-method">Method</h2>
+      <div id="method"></div>
+    </section>
+  </main>
+
+  <dialog id="detail">
+    <form method="dialog"><button class="close" aria-label="Close">Close</button></form>
+    <div id="detail-body"></div>
+  </dialog>
+
+  <footer class="page-foot">
+    <p>Synthetic data only. Source and method: github.com/alex2t/jev-soc-bench.</p>
+  </footer>
+</body>
+</html>
