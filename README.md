@@ -34,6 +34,13 @@ were measured in run-20261003-213701 (2026-10-03), gpt-5.6-sol in run-20261004-0
 The dashboard shows the two runs together only because they used the same questions, the same
 alert inputs and the same labels.
 
+**Batched, 10 alerts per request** ([details](#batching-experiment)): gpt-4o-mini's queue accuracy
+fell from 85.0% to 60.0%, and a malicious alert in the same request made it auto-close real threats.
+gpt-5.6-sol gave exactly the same answers as with single alerts (97.5%). Jev dipped from 100% to
+95.8%, but 4 of its 5 mistakes had low confidence, so the policy sends them to an analyst rather
+than acting on them. Neither Jev nor gpt-5.6-sol changed a single answer when a malicious alert
+shared the request.
+
 ![Queue accuracy by difficulty](docs/img/difficulty.png)
 
 ## What the numbers do and do not show
