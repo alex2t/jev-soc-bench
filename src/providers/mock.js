@@ -9,9 +9,16 @@ import { normaliseUsage } from './jev.js';
 
 const round = (x, digits = 4) => Number(x.toFixed(digits));
 
+/**
+ * Seeded on the alert a question is about: `state.alert_id` for a single alert, or
+ * `state.alerts[i].alert_id` for a batched question `a<i>__<id>` (section 13), so a batched mock
+ * answer equals the single-alert one and mock runs show no batch effect.
+ */
 function randomFor(provider, state, repeat, questionId) {
-  if (!state?.alert_id) throw new Error('mock provider needs state.alert_id');
-  return seededRandom(`${provider}|${state.alert_id}|${repeat}|${questionId}`);
+  const batched = /^a(\d+)__(.+)$/.exec(questionId);
+  const alertId = batched ? state?.alerts?.[Number(batched[1])]?.alert_id : state?.alert_id;
+  if (!alertId) throw new Error(`mock provider needs ${batched ? `state.alerts[${batched[1]}].alert_id` : 'state.alert_id'}`);
+  return seededRandom(`${provider}|${alertId}|${repeat}|${batched ? batched[2] : questionId}`);
 }
 
 /** Probabilities over keys, rounded, with the rounding remainder on the largest so they sum to 1. */
@@ -48,7 +55,8 @@ function llmValue(q, rand) {
 }
 
 function latency(provider, state, repeat, min, spread) {
-  return round(min + randomFor(provider, state, repeat, '__latency')() * spread, 1);
+  const key = state.alerts ? { alert_id: state.alerts.map(a => a.alert_id).join(',') } : state;
+  return round(min + randomFor(provider, key, repeat, '__latency')() * spread, 1);
 }
 
 export async function mockJev({ state, questions, repeat = 1 }) {
