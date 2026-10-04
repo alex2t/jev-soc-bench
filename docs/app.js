@@ -55,7 +55,7 @@ function drawThreats(view, alerts) {
     el('h3', {}, 'Threats auto-closed'),
     items.length ? el('ul', { class: 'threats' }, items) : el('p', { class: 'note' }, 'None: no model auto-closed an alert labelled as a threat.'),
     items.length ? el('p', { class: 'note' }, 'An auto-closed threat is a call the policy closed automatically although the alert is labelled as a threat. '
-      + 'Labels were reviewed before any model was run and are not changed after seeing a model disagree.') : null);
+      + 'Labels were reviewed before the first benchmark run and have not been changed since, including where a model disagreed.') : null);
 }
 
 function methodRun(run) {
