@@ -24,8 +24,8 @@ disagreement in issue.md instead.
   `git check-ignore -v .env plan.md issue.md`; all three must be reported as ignored and
   none may appear as staged. Stage files by name rather than with `git add -A`.
 - **No paid API calls** except the ones a milestone explicitly calls for (M2 smoke test,
-  M5 full run, M8 batching experiment), and only when the owner asks for them in the
-  current session. Tests never touch the network; providers are tested with an injected
+  M5 full run, M8 batching experiment, M9 second LLM baseline), and only when the owner
+  asks for them in the current session. Tests never touch the network; providers are tested with an injected
   `fetchImpl`.
 - **The OpenRouter key never leaves the server side.** It must not appear in logs, error
   messages, results files, the browser, or committed files.
