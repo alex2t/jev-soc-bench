@@ -12,9 +12,8 @@ LLM.md
 # Dependencies
 node_modules/
 
-# Benchmark output: only the run chosen for the README is committed
+# Benchmark output: local only; published runs live in docs/data/
 results/*.json
-!results/published/
 
 # Playwright and OS clutter
 test-results/
