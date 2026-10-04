@@ -204,5 +204,108 @@
         "alertsLost": 0
       }
     }
+  },
+  {
+    "batchRunId": "run-20261004-150708",
+    "provider": "llm",
+    "model": "openai/gpt-4o-mini",
+    "singleRunId": "run-20261003-213701",
+    "comparison": {
+      "model": "openai/gpt-4o-mini",
+      "accuracy": {
+        "queue": {
+          "batched": 0.6,
+          "single": 0.85,
+          "delta": -0.25,
+          "nBatched": 120,
+          "nSingle": 120
+        },
+        "quarantine": {
+          "batched": 0.5416666666666666,
+          "single": 0.725,
+          "delta": -0.18333333333333335,
+          "nBatched": 120,
+          "nSingle": 120
+        },
+        "blast_radius": {
+          "batched": 0.3416666666666667,
+          "single": 0.5666666666666667,
+          "delta": -0.22499999999999998,
+          "nBatched": 120,
+          "nSingle": 120
+        }
+      },
+      "agreement": {
+        "sameMajorityQueue": {
+          "value": 0.7647058823529411,
+          "n": 34,
+          "ties": 6
+        },
+        "meanAbsQuarantineChange": {
+          "value": 0.27833333333333327,
+          "n": 40
+        }
+      },
+      "consistency": {
+        "batched": {
+          "sameQueueShare": {
+            "value": 0.3,
+            "n": 40
+          },
+          "meanStdQuarantine": {
+            "value": 0.270839482512119,
+            "n": 40
+          },
+          "meanStdBlast": {
+            "value": 0.8386994767737193,
+            "n": 40
+          }
+        },
+        "single": {
+          "sameQueueShare": {
+            "value": 1,
+            "n": 40
+          },
+          "meanStdQuarantine": {
+            "value": 0.017677669529663705,
+            "n": 40
+          },
+          "meanStdBlast": {
+            "value": 0.05892556509887896,
+            "n": 40
+          }
+        }
+      },
+      "positionEffect": [
+        {
+          "positions": "0-2",
+          "value": 0.8611111111111112,
+          "n": 36
+        },
+        {
+          "positions": "3-6",
+          "value": 0.5208333333333334,
+          "n": 48
+        },
+        {
+          "positions": "7-9",
+          "value": 0.4444444444444444,
+          "n": 36
+        }
+      ],
+      "costPer1000AlertsUsd": {
+        "batched": 0.08835124999999996,
+        "single": 0.09436875000000003
+      },
+      "latencyPerAlertMsP50": {
+        "batched": 416.20219,
+        "single": 1047.0260000000053
+      },
+      "requests": {
+        "n": 12,
+        "failed": 0,
+        "alertsLost": 0
+      }
+    }
   }
 ]

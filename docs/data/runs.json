@@ -1,5 +1,73 @@
 [
   {
+    "runId": "run-20261004-150856",
+    "label": "contamination, gpt-4o-mini",
+    "startedAt": "2026-10-04T15:08:56.997Z",
+    "design": "contamination",
+    "batchSize": null,
+    "providers": [
+      "llm"
+    ],
+    "requestedModels": {
+      "llm": "openai/gpt-4o-mini"
+    },
+    "returnedModels": {
+      "llm": [
+        "openai/gpt-4o-mini"
+      ]
+    },
+    "upstreams": {
+      "llm": [
+        "Azure",
+        "OpenAI"
+      ]
+    },
+    "requestSettings": {
+      "llm": {
+        "temperature": 0
+      }
+    },
+    "scoredCalls": 135,
+    "questionsSha256": "267e495a15ced2c2d19b26d6f5bd3332c05363889c66f6fe244694cddc99e618",
+    "datasetInputsSha256": "00f19d887f9ee71c0dbb3011926ef5d8d6c0f08fe0c8fcd34144c9b4cd89fb44",
+    "scoredWithLabelsSha256": "900bab285f88f0d1dc7cb8e33d0f4576e532fce3bf9bcc92ca818d20681571a4",
+    "summaryComputedAt": "2026-10-04T15:11:44.820Z"
+  },
+  {
+    "runId": "run-20261004-150708",
+    "label": "batch 10, gpt-4o-mini",
+    "startedAt": "2026-10-04T15:07:08.105Z",
+    "design": "batch",
+    "batchSize": 10,
+    "providers": [
+      "llm"
+    ],
+    "requestedModels": {
+      "llm": "openai/gpt-4o-mini"
+    },
+    "returnedModels": {
+      "llm": [
+        "openai/gpt-4o-mini"
+      ]
+    },
+    "upstreams": {
+      "llm": [
+        "Azure",
+        "OpenAI"
+      ]
+    },
+    "requestSettings": {
+      "llm": {
+        "temperature": 0
+      }
+    },
+    "scoredCalls": 120,
+    "questionsSha256": "267e495a15ced2c2d19b26d6f5bd3332c05363889c66f6fe244694cddc99e618",
+    "datasetInputsSha256": "00f19d887f9ee71c0dbb3011926ef5d8d6c0f08fe0c8fcd34144c9b4cd89fb44",
+    "scoredWithLabelsSha256": "900bab285f88f0d1dc7cb8e33d0f4576e532fce3bf9bcc92ca818d20681571a4",
+    "summaryComputedAt": "2026-10-04T15:11:43.180Z"
+  },
+  {
     "runId": "run-20261004-125719",
     "label": "contamination, jev + gpt-5.6-sol",
     "startedAt": "2026-10-04T12:57:19.772Z",
