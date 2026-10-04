@@ -52,9 +52,10 @@
     "completedCalls": 120,
     "datasetInputsSha256": "00f19d887f9ee71c0dbb3011926ef5d8d6c0f08fe0c8fcd34144c9b4cd89fb44",
     "scoredWithLabelsSha256": "900bab285f88f0d1dc7cb8e33d0f4576e532fce3bf9bcc92ca818d20681571a4",
-    "summaryComputedAt": "2026-10-04T10:32:00.114Z",
-    "summaryGitCommit": "4d51bd6",
-    "publishedPartial": false
+    "summaryComputedAt": "2026-10-04T13:31:39.605Z",
+    "summaryGitCommit": "78aa4c3",
+    "publishedPartial": false,
+    "usageBackfill": "cachedInputTokens for 121 records taken from rawResponse at publication (F-43)"
   },
   "records": [
     {
@@ -71,7 +72,8 @@
         "inputTokens": 526,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001322
+        "costUsd": 0.001322,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102843-FcXEG1m0WcgWPYXOfy21",
@@ -159,7 +161,8 @@
         "inputTokens": 549,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001368
+        "costUsd": 0.001368,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102845-Svm2ceIU9NPOxHNtEqDl",
@@ -247,7 +250,8 @@
         "inputTokens": 553,
         "outputTokens": 28,
         "reasoningTokens": 0,
-        "costUsd": 0.001386
+        "costUsd": 0.001386,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102845-Xedj6srQ8PIRnRr2pNMS",
@@ -335,7 +339,8 @@
         "inputTokens": 545,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.00136
+        "costUsd": 0.00136,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102846-ZMGlG10qx12fOMzLcyFs",
@@ -423,7 +428,8 @@
         "inputTokens": 535,
         "outputTokens": 25,
         "reasoningTokens": 0,
-        "costUsd": 0.00132
+        "costUsd": 0.00132,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102846-9l5YAVDn7RiJEuJH45qM",
@@ -511,7 +517,8 @@
         "inputTokens": 531,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001332
+        "costUsd": 0.001332,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102847-V9JE1fvp4Cxi3w6UvLo9",
@@ -599,7 +606,8 @@
         "inputTokens": 536,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001342
+        "costUsd": 0.001342,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102847-kDMyfLdVDEpOnQ8NQ2Yx",
@@ -687,7 +695,8 @@
         "inputTokens": 556,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001382
+        "costUsd": 0.001382,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102848-JNCDikTV3gbOs4IZiTPD",
@@ -775,7 +784,8 @@
         "inputTokens": 569,
         "outputTokens": 133,
         "reasoningTokens": 103,
-        "costUsd": 0.002468
+        "costUsd": 0.002468,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102848-jQel27UWjdIzYsC5oaVO",
@@ -872,7 +882,8 @@
         "inputTokens": 552,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001374
+        "costUsd": 0.001374,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102849-nNZx81iBctDAsXPqPJF2",
@@ -960,7 +971,8 @@
         "inputTokens": 556,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001382
+        "costUsd": 0.001382,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102850-ubiAeY8Zzh90xUJPrEIW",
@@ -1048,7 +1060,8 @@
         "inputTokens": 549,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001368
+        "costUsd": 0.001368,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102851-zd7WohyT0fUkuy3FRQYU",
@@ -1136,7 +1149,8 @@
         "inputTokens": 546,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001362
+        "costUsd": 0.001362,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102851-1GVj1q8moTihrXFWpDXw",
@@ -1224,7 +1238,8 @@
         "inputTokens": 541,
         "outputTokens": 76,
         "reasoningTokens": 47,
-        "costUsd": 0.001842
+        "costUsd": 0.001842,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102852-vIPUAdcJGaYGU41P4MdU",
@@ -1327,7 +1342,8 @@
         "inputTokens": 540,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.00135
+        "costUsd": 0.00135,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102852-QCkSJ7BpXAeKZEFpdUAw",
@@ -1415,7 +1431,8 @@
         "inputTokens": 549,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001368
+        "costUsd": 0.001368,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102853-WRyqBencU1mADBy7KTyj",
@@ -1503,7 +1520,8 @@
         "inputTokens": 541,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001352
+        "costUsd": 0.001352,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102855-smAbAWijibBmEhRbDWEd",
@@ -1591,7 +1609,8 @@
         "inputTokens": 541,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001352
+        "costUsd": 0.001352,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102855-yn3oTKlRs7NakTwvDVce",
@@ -1679,7 +1698,8 @@
         "inputTokens": 542,
         "outputTokens": 29,
         "reasoningTokens": 0,
-        "costUsd": 0.001374
+        "costUsd": 0.001374,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102856-ObilNunCNv2ti8Q2mBgO",
@@ -1767,7 +1787,8 @@
         "inputTokens": 556,
         "outputTokens": 28,
         "reasoningTokens": 0,
-        "costUsd": 0.001392
+        "costUsd": 0.001392,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102856-cUpwAmbtl4Fs7QM4ZagR",
@@ -1855,7 +1876,8 @@
         "inputTokens": 585,
         "outputTokens": 70,
         "reasoningTokens": 40,
-        "costUsd": 0.00187
+        "costUsd": 0.00187,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102857-5ck8JdeKrlQlSUyuIFSZ",
@@ -1958,7 +1980,8 @@
         "inputTokens": 585,
         "outputTokens": 28,
         "reasoningTokens": 0,
-        "costUsd": 0.00145
+        "costUsd": 0.00145,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102857-q7ier3ywfiqqaPEiCrhe",
@@ -2046,7 +2069,8 @@
         "inputTokens": 531,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001332
+        "costUsd": 0.001332,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102858-OGTMpiEJHJcQg5LEUmYJ",
@@ -2134,7 +2158,8 @@
         "inputTokens": 537,
         "outputTokens": 29,
         "reasoningTokens": 0,
-        "costUsd": 0.001364
+        "costUsd": 0.001364,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102859-P98t1kkO8L0awtqISQMA",
@@ -2222,7 +2247,8 @@
         "inputTokens": 556,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001382
+        "costUsd": 0.001382,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102861-aigcSS8WPZgWq3juPIka",
@@ -2310,7 +2336,8 @@
         "inputTokens": 548,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001366
+        "costUsd": 0.001366,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102861-Xy0Z80KmWyUwmdzDyeOx",
@@ -2398,7 +2425,8 @@
         "inputTokens": 534,
         "outputTokens": 84,
         "reasoningTokens": 54,
-        "costUsd": 0.001908
+        "costUsd": 0.001908,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102862-W05UNz88pjzCvdKxAz6C",
@@ -2495,7 +2523,8 @@
         "inputTokens": 550,
         "outputTokens": 98,
         "reasoningTokens": 68,
-        "costUsd": 0.00208
+        "costUsd": 0.00208,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102862-aQReJMqBwLF6pgUre44J",
@@ -2592,7 +2621,8 @@
         "inputTokens": 554,
         "outputTokens": 133,
         "reasoningTokens": 104,
-        "costUsd": 0.002438
+        "costUsd": 0.002438,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102864-JxhPhuE2sOEJ4dVtEWuX",
@@ -2689,7 +2719,8 @@
         "inputTokens": 555,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.00138
+        "costUsd": 0.00138,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102864-bj4j5amxDADHpkCF06lo",
@@ -2777,7 +2808,8 @@
         "inputTokens": 546,
         "outputTokens": 94,
         "reasoningTokens": 64,
-        "costUsd": 0.002032
+        "costUsd": 0.002032,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102865-5yNaCGmiKSRd3DwO274o",
@@ -2880,7 +2912,8 @@
         "inputTokens": 545,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.00136
+        "costUsd": 0.00136,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102867-fx3YLJToAzZlyQrbME6v",
@@ -2968,7 +3001,8 @@
         "inputTokens": 534,
         "outputTokens": 126,
         "reasoningTokens": 97,
-        "costUsd": 0.002328
+        "costUsd": 0.002328,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102868-4pb2rtqJh9Z3KYf9bGkn",
@@ -3065,7 +3099,8 @@
         "inputTokens": 531,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001332
+        "costUsd": 0.001332,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102868-NEAh8Jlk2BFFYWhjXn0x",
@@ -3153,7 +3188,8 @@
         "inputTokens": 569,
         "outputTokens": 144,
         "reasoningTokens": 112,
-        "costUsd": 0.002578
+        "costUsd": 0.002578,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102869-eNbdBo5SQKLgh3iaAK8w",
@@ -3250,7 +3286,8 @@
         "inputTokens": 536,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001342
+        "costUsd": 0.001342,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102870-Yx2SMgGHMhHawS4HTqoo",
@@ -3338,7 +3375,8 @@
         "inputTokens": 531,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001332
+        "costUsd": 0.001332,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102871-ZVs6HG1yXPXb3Rj2JIhK",
@@ -3426,7 +3464,8 @@
         "inputTokens": 552,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001374
+        "costUsd": 0.001374,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102872-1vHWAFn72RbpykJMcSvx",
@@ -3514,7 +3553,8 @@
         "inputTokens": 554,
         "outputTokens": 122,
         "reasoningTokens": 91,
-        "costUsd": 0.002328
+        "costUsd": 0.002328,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102872-nFu2slGChGUWQ9HTlcXX",
@@ -3611,7 +3651,8 @@
         "inputTokens": 528,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001326
+        "costUsd": 0.001326,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102873-RzrkReHbtxjno0m7ikX7",
@@ -3699,7 +3740,8 @@
         "inputTokens": 536,
         "outputTokens": 29,
         "reasoningTokens": 0,
-        "costUsd": 0.001362
+        "costUsd": 0.001362,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102874-1PpHEeTcXBWVPy0tGXd3",
@@ -3787,7 +3829,8 @@
         "inputTokens": 535,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.00134
+        "costUsd": 0.00134,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102874-bK8IL7BCdFRljhurHE11",
@@ -3875,7 +3918,8 @@
         "inputTokens": 541,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001352
+        "costUsd": 0.001352,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102875-KwqwxWnApEOr3WmQdlXe",
@@ -3963,7 +4007,8 @@
         "inputTokens": 534,
         "outputTokens": 112,
         "reasoningTokens": 82,
-        "costUsd": 0.002188
+        "costUsd": 0.002188,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102875-RGBuqVsYUWUVwOGtibEI",
@@ -4060,7 +4105,8 @@
         "inputTokens": 526,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001322
+        "costUsd": 0.001322,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102876-LkLXTOYMgrZjXpFg3xOg",
@@ -4148,7 +4194,8 @@
         "inputTokens": 529,
         "outputTokens": 152,
         "reasoningTokens": 123,
-        "costUsd": 0.002578
+        "costUsd": 0.002578,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102877-qZzv8mREOuU7a4alUrdK",
@@ -4245,7 +4292,8 @@
         "inputTokens": 541,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001352
+        "costUsd": 0.001352,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102878-79nZ4NHKaj7bkiBSAgSI",
@@ -4333,7 +4381,8 @@
         "inputTokens": 554,
         "outputTokens": 29,
         "reasoningTokens": 0,
-        "costUsd": 0.001398
+        "costUsd": 0.001398,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102879-lU2VCfEYVhQsx3PPqeA2",
@@ -4421,7 +4470,8 @@
         "inputTokens": 534,
         "outputTokens": 122,
         "reasoningTokens": 93,
-        "costUsd": 0.002288
+        "costUsd": 0.002288,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102880-8zrg3YUEqZhubpUprNPb",
@@ -4518,7 +4568,8 @@
         "inputTokens": 540,
         "outputTokens": 95,
         "reasoningTokens": 66,
-        "costUsd": 0.00203
+        "costUsd": 0.00203,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102880-Irwxq98TQbkq8AWEotvB",
@@ -4621,7 +4672,8 @@
         "inputTokens": 540,
         "outputTokens": 29,
         "reasoningTokens": 0,
-        "costUsd": 0.00137
+        "costUsd": 0.00137,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102882-C78xTAqzNbPWiGs1a1TB",
@@ -4709,7 +4761,8 @@
         "inputTokens": 528,
         "outputTokens": 91,
         "reasoningTokens": 62,
-        "costUsd": 0.001966
+        "costUsd": 0.001966,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102883-VDUkt7QROlzFOuLcXaAp",
@@ -4812,7 +4865,8 @@
         "inputTokens": 549,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001368
+        "costUsd": 0.001368,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102884-WRkLxAJwecYIirRhRSlZ",
@@ -4900,7 +4954,8 @@
         "inputTokens": 541,
         "outputTokens": 150,
         "reasoningTokens": 121,
-        "costUsd": 0.002582
+        "costUsd": 0.002582,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102885-QSDUmBonGdUP6yAYmKyR",
@@ -4997,7 +5052,8 @@
         "inputTokens": 554,
         "outputTokens": 200,
         "reasoningTokens": 171,
-        "costUsd": 0.003108
+        "costUsd": 0.003108,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102886-7DJN1RUCZWHcSC2dEeqh",
@@ -5100,7 +5156,8 @@
         "inputTokens": 531,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001332
+        "costUsd": 0.001332,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102888-TUDjNCpGQBOzW8hgUz8p",
@@ -5188,7 +5245,8 @@
         "inputTokens": 542,
         "outputTokens": 140,
         "reasoningTokens": 109,
-        "costUsd": 0.002484
+        "costUsd": 0.002484,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102890-Na2pyHPtlH8BfFOrVb3e",
@@ -5285,7 +5343,8 @@
         "inputTokens": 569,
         "outputTokens": 106,
         "reasoningTokens": 76,
-        "costUsd": 0.002198
+        "costUsd": 0.002198,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102890-O4mq913eTTE4Sb2NESLQ",
@@ -5382,7 +5441,8 @@
         "inputTokens": 558,
         "outputTokens": 89,
         "reasoningTokens": 59,
-        "costUsd": 0.002006
+        "costUsd": 0.002006,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102892-ORfSg1pr8KnaQQRi1nyW",
@@ -5485,7 +5545,8 @@
         "inputTokens": 570,
         "outputTokens": 91,
         "reasoningTokens": 61,
-        "costUsd": 0.00205
+        "costUsd": 0.00205,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102893-Cyr7CUI2PeFISU8kkGsf",
@@ -5588,7 +5649,8 @@
         "inputTokens": 567,
         "outputTokens": 127,
         "reasoningTokens": 98,
-        "costUsd": 0.002404
+        "costUsd": 0.002404,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102895-nc3fXgdda65dVy5mmx4d",
@@ -5685,7 +5747,8 @@
         "inputTokens": 540,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.00135
+        "costUsd": 0.00135,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102896-Oh4uyPmrx220siGkmHQB",
@@ -5773,7 +5836,8 @@
         "inputTokens": 537,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001344
+        "costUsd": 0.001344,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102897-oNEFzoESYXIB51qpUUCN",
@@ -5861,7 +5925,8 @@
         "inputTokens": 526,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001322
+        "costUsd": 0.001322,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102897-97lVWcKnz3aFqWKNR7AO",
@@ -5949,7 +6014,8 @@
         "inputTokens": 528,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001326
+        "costUsd": 0.001326,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102898-M3FmPCJbXXhe8KPAwUHK",
@@ -6037,7 +6103,8 @@
         "inputTokens": 555,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.00138
+        "costUsd": 0.00138,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102898-dbzuj4EPwzrmisPs6Wl7",
@@ -6125,7 +6192,8 @@
         "inputTokens": 553,
         "outputTokens": 28,
         "reasoningTokens": 0,
-        "costUsd": 0.001386
+        "costUsd": 0.001386,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102899-vvXt9149zOOrlKe0Rjzh",
@@ -6213,7 +6281,8 @@
         "inputTokens": 560,
         "outputTokens": 69,
         "reasoningTokens": 40,
-        "costUsd": 0.00181
+        "costUsd": 0.00181,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102899-yuHcGUc66KQr7M2EMO1o",
@@ -6310,7 +6379,8 @@
         "inputTokens": 548,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001366
+        "costUsd": 0.001366,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102900-bADTVpHGUq05cABxbgrn",
@@ -6398,7 +6468,8 @@
         "inputTokens": 567,
         "outputTokens": 99,
         "reasoningTokens": 70,
-        "costUsd": 0.002124
+        "costUsd": 0.002124,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102901-fI4eSCvSYGrt8Nip6QCA",
@@ -6501,7 +6572,8 @@
         "inputTokens": 545,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.00136
+        "costUsd": 0.00136,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102901-AFgRDG1rH0pOjvMJpG3r",
@@ -6589,7 +6661,8 @@
         "inputTokens": 530,
         "outputTokens": 115,
         "reasoningTokens": 84,
-        "costUsd": 0.00221
+        "costUsd": 0.00221,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102902-km4qBRDe1yrMyZG39sum",
@@ -6692,7 +6765,8 @@
         "inputTokens": 535,
         "outputTokens": 118,
         "reasoningTokens": 87,
-        "costUsd": 0.00225
+        "costUsd": 0.00225,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102904-ycQAASfq2adIw1kGvvBo",
@@ -6789,7 +6863,8 @@
         "inputTokens": 548,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001366
+        "costUsd": 0.001366,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102906-IFJsiN5I4fp6Ws4eSkhO",
@@ -6877,7 +6952,8 @@
         "inputTokens": 541,
         "outputTokens": 70,
         "reasoningTokens": 41,
-        "costUsd": 0.001782
+        "costUsd": 0.001782,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102907-sNKoPMn5Sr2WeXCcp6mN",
@@ -6974,7 +7050,8 @@
         "inputTokens": 552,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001374
+        "costUsd": 0.001374,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102907-kVEutDTAtROm68GbWaMH",
@@ -7062,7 +7139,8 @@
         "inputTokens": 570,
         "outputTokens": 98,
         "reasoningTokens": 68,
-        "costUsd": 0.00212
+        "costUsd": 0.00212,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102908-Cd16O0YXoyQpEMthtbLO",
@@ -7165,7 +7243,8 @@
         "inputTokens": 555,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.00138
+        "costUsd": 0.00138,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102910-RkVUlHvuYNezFGORcELp",
@@ -7253,7 +7332,8 @@
         "inputTokens": 560,
         "outputTokens": 74,
         "reasoningTokens": 45,
-        "costUsd": 0.00186
+        "costUsd": 0.00186,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102911-a95z8EKy6ut1TjwO1hny",
@@ -7356,7 +7436,8 @@
         "inputTokens": 570,
         "outputTokens": 92,
         "reasoningTokens": 62,
-        "costUsd": 0.00206
+        "costUsd": 0.00206,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102911-ZoKTrGcGY3bHb4XqTddI",
@@ -7459,7 +7540,8 @@
         "inputTokens": 546,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001362
+        "costUsd": 0.001362,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102914-sDFGSd23KEC3kN66KyDN",
@@ -7547,7 +7629,8 @@
         "inputTokens": 556,
         "outputTokens": 26,
         "reasoningTokens": 0,
-        "costUsd": 0.001372
+        "costUsd": 0.001372,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102914-y3L1bTg4FnHJ66b7kEyf",
@@ -7635,7 +7718,8 @@
         "inputTokens": 535,
         "outputTokens": 97,
         "reasoningTokens": 68,
-        "costUsd": 0.00204
+        "costUsd": 0.00204,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102915-njuLZU28MipTsCsUXSRq",
@@ -7738,7 +7822,8 @@
         "inputTokens": 541,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001352
+        "costUsd": 0.001352,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102915-Ffe4pFbET5kHJkWTclvi",
@@ -7826,7 +7911,8 @@
         "inputTokens": 546,
         "outputTokens": 148,
         "reasoningTokens": 116,
-        "costUsd": 0.002572
+        "costUsd": 0.002572,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102916-xjBKUr1ufVujTzfu1nKn",
@@ -7923,7 +8009,8 @@
         "inputTokens": 550,
         "outputTokens": 116,
         "reasoningTokens": 86,
-        "costUsd": 0.00226
+        "costUsd": 0.00226,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102918-ygdjvSQX5oChPnxZMkhm",
@@ -8020,7 +8107,8 @@
         "inputTokens": 563,
         "outputTokens": 93,
         "reasoningTokens": 63,
-        "costUsd": 0.002056
+        "costUsd": 0.002056,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102919-fju0huq21YywGG5FfbhP",
@@ -8123,7 +8211,8 @@
         "inputTokens": 535,
         "outputTokens": 136,
         "reasoningTokens": 105,
-        "costUsd": 0.00243
+        "costUsd": 0.00243,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102920-8BJCY8xjQ7oE4UrSADUc",
@@ -8220,7 +8309,8 @@
         "inputTokens": 569,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001408
+        "costUsd": 0.001408,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102922-7DqfgylGWnUqk7pQZ7cf",
@@ -8308,7 +8398,8 @@
         "inputTokens": 534,
         "outputTokens": 124,
         "reasoningTokens": 95,
-        "costUsd": 0.002308
+        "costUsd": 0.002308,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102923-KZMUoHtobFdmD0IGiZsi",
@@ -8405,7 +8496,8 @@
         "inputTokens": 526,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001322
+        "costUsd": 0.001322,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102924-Su39cQ9DryVoXq483lpa",
@@ -8493,7 +8585,8 @@
         "inputTokens": 569,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001408
+        "costUsd": 0.001408,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102925-dH2Nr9iXwkfI4rSQcknY",
@@ -8581,7 +8674,8 @@
         "inputTokens": 558,
         "outputTokens": 30,
         "reasoningTokens": 0,
-        "costUsd": 0.001416
+        "costUsd": 0.001416,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102926-0drBDzqIsN7AoGpT0OXB",
@@ -8669,7 +8763,8 @@
         "inputTokens": 535,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.00134
+        "costUsd": 0.00134,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102927-Px0pTZzQYkVEhIvfsR0z",
@@ -8757,7 +8852,8 @@
         "inputTokens": 542,
         "outputTokens": 169,
         "reasoningTokens": 138,
-        "costUsd": 0.002774
+        "costUsd": 0.002774,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102927-Hw5phHYVDgEOlAQHp7JT",
@@ -8854,7 +8950,8 @@
         "inputTokens": 558,
         "outputTokens": 30,
         "reasoningTokens": 0,
-        "costUsd": 0.001416
+        "costUsd": 0.001416,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102928-5JAMwpJxkWOf7KXJDQHn",
@@ -8942,7 +9039,8 @@
         "inputTokens": 556,
         "outputTokens": 28,
         "reasoningTokens": 0,
-        "costUsd": 0.001392
+        "costUsd": 0.001392,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102929-6dT5QboIEC4vXyTB83cK",
@@ -9030,7 +9128,8 @@
         "inputTokens": 563,
         "outputTokens": 93,
         "reasoningTokens": 63,
-        "costUsd": 0.002056
+        "costUsd": 0.002056,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102930-zaTUJn46Ok6PY5mqcRls",
@@ -9133,7 +9232,8 @@
         "inputTokens": 534,
         "outputTokens": 69,
         "reasoningTokens": 39,
-        "costUsd": 0.001758
+        "costUsd": 0.001758,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102931-Ex6Ceoej2sLbVg9SkKZR",
@@ -9236,7 +9336,8 @@
         "inputTokens": 553,
         "outputTokens": 28,
         "reasoningTokens": 0,
-        "costUsd": 0.001386
+        "costUsd": 0.001386,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102934-SnXdVF7dy2152rjT9DXG",
@@ -9324,7 +9425,8 @@
         "inputTokens": 554,
         "outputTokens": 29,
         "reasoningTokens": 0,
-        "costUsd": 0.001398
+        "costUsd": 0.001398,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102934-aHqp3IupO5oqK8zlBY9a",
@@ -9412,7 +9514,8 @@
         "inputTokens": 563,
         "outputTokens": 104,
         "reasoningTokens": 74,
-        "costUsd": 0.002166
+        "costUsd": 0.002166,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102935-UfWCkWmdvCn3pSl03a9e",
@@ -9515,7 +9618,8 @@
         "inputTokens": 585,
         "outputTokens": 28,
         "reasoningTokens": 0,
-        "costUsd": 0.00145
+        "costUsd": 0.00145,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102935-lzSJJYt7rR4MonHyWihe",
@@ -9603,7 +9707,8 @@
         "inputTokens": 537,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001344
+        "costUsd": 0.001344,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102936-Uyc5eOTFa9GWTir9mXUh",
@@ -9691,7 +9796,8 @@
         "inputTokens": 540,
         "outputTokens": 102,
         "reasoningTokens": 73,
-        "costUsd": 0.0021
+        "costUsd": 0.0021,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102937-40py7AsuJAHMpyTLh6Z7",
@@ -9788,7 +9894,8 @@
         "inputTokens": 546,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001362
+        "costUsd": 0.001362,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102938-yTeGRw5KLethkgFba8p0",
@@ -9876,7 +9983,8 @@
         "inputTokens": 530,
         "outputTokens": 114,
         "reasoningTokens": 85,
-        "costUsd": 0.0022
+        "costUsd": 0.0022,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102939-gKeIxnr9tn1cCFGBksId",
@@ -9973,7 +10081,8 @@
         "inputTokens": 531,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001332
+        "costUsd": 0.001332,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102939-nySdEqMdtRu0wXdmJIL5",
@@ -10061,7 +10170,8 @@
         "inputTokens": 530,
         "outputTokens": 143,
         "reasoningTokens": 114,
-        "costUsd": 0.00249
+        "costUsd": 0.00249,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102940-I5aPD3b7Rlp76QDLhNYw",
@@ -10158,7 +10268,8 @@
         "inputTokens": 567,
         "outputTokens": 100,
         "reasoningTokens": 71,
-        "costUsd": 0.002134
+        "costUsd": 0.002134,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102941-15ckKM7drBLD3tLNGFEB",
@@ -10261,7 +10372,8 @@
         "inputTokens": 550,
         "outputTokens": 108,
         "reasoningTokens": 78,
-        "costUsd": 0.00218
+        "costUsd": 0.00218,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102943-Cx9B22q3kTZftSSCO5Yz",
@@ -10358,7 +10470,8 @@
         "inputTokens": 529,
         "outputTokens": 126,
         "reasoningTokens": 95,
-        "costUsd": 0.002318
+        "costUsd": 0.002318,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102944-3ORHlE8tehRTP4XPDyEe",
@@ -10461,7 +10574,8 @@
         "inputTokens": 549,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001368
+        "costUsd": 0.001368,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102945-hkk89RUMAaa8JbIo1ztb",
@@ -10549,7 +10663,8 @@
         "inputTokens": 569,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001408
+        "costUsd": 0.001408,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102946-gvpCDkgsuvbLKx2kUpn1",
@@ -10637,7 +10752,8 @@
         "inputTokens": 546,
         "outputTokens": 123,
         "reasoningTokens": 91,
-        "costUsd": 0.002322
+        "costUsd": 0.002322,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102947-RX0icKIGHvwqLAT7guMg",
@@ -10734,7 +10850,8 @@
         "inputTokens": 541,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001352
+        "costUsd": 0.001352,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102947-XrkHSF3AwHfpmnml6oFB",
@@ -10822,7 +10939,8 @@
         "inputTokens": 549,
         "outputTokens": 27,
         "reasoningTokens": 0,
-        "costUsd": 0.001368
+        "costUsd": 0.001368,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102948-9pnouNuif0vlAHeBccej",
@@ -10910,7 +11028,8 @@
         "inputTokens": 540,
         "outputTokens": 124,
         "reasoningTokens": 95,
-        "costUsd": 0.00232
+        "costUsd": 0.00232,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102950-odXAOqmWBo2Y8I42l6Cf",
@@ -11007,7 +11126,8 @@
         "inputTokens": 554,
         "outputTokens": 29,
         "reasoningTokens": 0,
-        "costUsd": 0.001398
+        "costUsd": 0.001398,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102950-3Fve9IGolXCKgglW8ypv",
@@ -11095,7 +11215,8 @@
         "inputTokens": 529,
         "outputTokens": 125,
         "reasoningTokens": 96,
-        "costUsd": 0.002308
+        "costUsd": 0.002308,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102951-sfnJK4ozDRk1WcrYzX85",
@@ -11192,7 +11313,8 @@
         "inputTokens": 560,
         "outputTokens": 92,
         "reasoningTokens": 63,
-        "costUsd": 0.00204
+        "costUsd": 0.00204,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791102952-WDtk4DHNgDSMHpwMQzj5",
@@ -11401,7 +11523,14 @@
           "meanPerCallUsd": 0.0017200833333333332,
           "per1000AlertsUsd": 1.7200833333333332,
           "knownCalls": 120,
-          "unknownCalls": 0
+          "unknownCalls": 0,
+          "cachedInput": {
+            "share": 0,
+            "cachedTokens": 0,
+            "inputTokens": 65655,
+            "n": 120,
+            "unknownCalls": 0
+          }
         },
         "reasoningTokens": {
           "meanPerCall": 34.21666666666667,

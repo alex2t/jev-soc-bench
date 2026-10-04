@@ -1,0 +1,208 @@
+[
+  {
+    "batchRunId": "run-20261004-125611",
+    "provider": "llm",
+    "model": "openai/gpt-5.6-sol",
+    "singleRunId": "run-20261004-083401",
+    "comparison": {
+      "model": "openai/gpt-5.6-sol",
+      "accuracy": {
+        "queue": {
+          "batched": 0.975,
+          "single": 0.975,
+          "delta": 0,
+          "nBatched": 120,
+          "nSingle": 120
+        },
+        "quarantine": {
+          "batched": 0.7916666666666666,
+          "single": 0.8416666666666667,
+          "delta": -0.050000000000000044,
+          "nBatched": 120,
+          "nSingle": 120
+        },
+        "blast_radius": {
+          "batched": 0.9083333333333333,
+          "single": 0.725,
+          "delta": 0.18333333333333335,
+          "nBatched": 120,
+          "nSingle": 120
+        }
+      },
+      "agreement": {
+        "sameMajorityQueue": {
+          "value": 1,
+          "n": 40,
+          "ties": 0
+        },
+        "meanAbsQuarantineChange": {
+          "value": 0.060058333333333325,
+          "n": 40
+        }
+      },
+      "consistency": {
+        "batched": {
+          "sameQueueShare": {
+            "value": 1,
+            "n": 40
+          },
+          "meanStdQuarantine": {
+            "value": 0.032052122994374585,
+            "n": 40
+          },
+          "meanStdBlast": {
+            "value": 0.033267908641221776,
+            "n": 40
+          }
+        },
+        "single": {
+          "sameQueueShare": {
+            "value": 1,
+            "n": 40
+          },
+          "meanStdQuarantine": {
+            "value": 0.016618547392627435,
+            "n": 40
+          },
+          "meanStdBlast": {
+            "value": 0.06417945365371544,
+            "n": 40
+          }
+        }
+      },
+      "positionEffect": [
+        {
+          "positions": "0-2",
+          "value": 0.9722222222222222,
+          "n": 36
+        },
+        {
+          "positions": "3-6",
+          "value": 0.9791666666666666,
+          "n": 48
+        },
+        {
+          "positions": "7-9",
+          "value": 0.9722222222222222,
+          "n": 36
+        }
+      ],
+      "costPer1000AlertsUsd": {
+        "batched": 1.6131849999999983,
+        "single": 1.7200833333333332
+      },
+      "latencyPerAlertMsP50": {
+        "batched": 605.53292,
+        "single": 1196.4290999999994
+      },
+      "requests": {
+        "n": 12,
+        "failed": 0,
+        "alertsLost": 0
+      }
+    }
+  },
+  {
+    "batchRunId": "run-20261004-125611",
+    "provider": "jev",
+    "model": "typesafe/jev-1.13",
+    "singleRunId": "run-20261003-213701",
+    "comparison": {
+      "model": "typesafe/jev-1.13",
+      "accuracy": {
+        "queue": {
+          "batched": 0.9583333333333334,
+          "single": 1,
+          "delta": -0.04166666666666663,
+          "nBatched": 120,
+          "nSingle": 120
+        },
+        "quarantine": {
+          "batched": 0.9666666666666667,
+          "single": 0.925,
+          "delta": 0.04166666666666663,
+          "nBatched": 120,
+          "nSingle": 120
+        },
+        "blast_radius": {
+          "batched": 0.7583333333333333,
+          "single": 0.75,
+          "delta": 0.008333333333333304,
+          "nBatched": 120,
+          "nSingle": 120
+        }
+      },
+      "agreement": {
+        "sameMajorityQueue": {
+          "value": 0.975,
+          "n": 40,
+          "ties": 0
+        },
+        "meanAbsQuarantineChange": {
+          "value": 0.06866666666666665,
+          "n": 40
+        }
+      },
+      "consistency": {
+        "batched": {
+          "sameQueueShare": {
+            "value": 0.9,
+            "n": 40
+          },
+          "meanStdQuarantine": {
+            "value": 0.03319451631089658,
+            "n": 40
+          },
+          "meanStdBlast": {
+            "value": 0.061732337546646456,
+            "n": 40
+          }
+        },
+        "single": {
+          "sameQueueShare": {
+            "value": 1,
+            "n": 40
+          },
+          "meanStdQuarantine": {
+            "value": 0.005603734576837014,
+            "n": 40
+          },
+          "meanStdBlast": {
+            "value": 0.010438786711974372,
+            "n": 40
+          }
+        }
+      },
+      "positionEffect": [
+        {
+          "positions": "0-2",
+          "value": 0.9444444444444444,
+          "n": 36
+        },
+        {
+          "positions": "3-6",
+          "value": 0.9791666666666666,
+          "n": 48
+        },
+        {
+          "positions": "7-9",
+          "value": 0.9444444444444444,
+          "n": 36
+        }
+      ],
+      "costPer1000AlertsUsd": {
+        "batched": 0.02240804999999998,
+        "single": 0.031169250000000023
+      },
+      "latencyPerAlertMsP50": {
+        "batched": 28.77472999999991,
+        "single": 258.6020999999964
+      },
+      "requests": {
+        "n": 12,
+        "failed": 0,
+        "alertsLost": 0
+      }
+    }
+  }
+]

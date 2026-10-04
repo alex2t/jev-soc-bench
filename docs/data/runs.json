@@ -1,8 +1,92 @@
 [
   {
+    "runId": "run-20261004-125719",
+    "label": "contamination, jev + gpt-5.6-sol",
+    "startedAt": "2026-10-04T12:57:19.772Z",
+    "design": "contamination",
+    "batchSize": null,
+    "providers": [
+      "jev",
+      "llm"
+    ],
+    "requestedModels": {
+      "jev": "typesafe/jev-1.13",
+      "llm": "openai/gpt-5.6-sol"
+    },
+    "returnedModels": {
+      "jev": [
+        "typesafe/jev-1.13-20260917"
+      ],
+      "llm": [
+        "openai/gpt-5.6-sol"
+      ]
+    },
+    "upstreams": {
+      "jev": [
+        "TypeSafe"
+      ],
+      "llm": [
+        "OpenAI"
+      ]
+    },
+    "requestSettings": {
+      "llm": {
+        "reasoning_effort": "low"
+      }
+    },
+    "scoredCalls": 270,
+    "questionsSha256": "267e495a15ced2c2d19b26d6f5bd3332c05363889c66f6fe244694cddc99e618",
+    "datasetInputsSha256": "00f19d887f9ee71c0dbb3011926ef5d8d6c0f08fe0c8fcd34144c9b4cd89fb44",
+    "scoredWithLabelsSha256": "900bab285f88f0d1dc7cb8e33d0f4576e532fce3bf9bcc92ca818d20681571a4",
+    "summaryComputedAt": "2026-10-04T13:31:41.593Z"
+  },
+  {
+    "runId": "run-20261004-125611",
+    "label": "batch 10, jev + gpt-5.6-sol",
+    "startedAt": "2026-10-04T12:56:11.207Z",
+    "design": "batch",
+    "batchSize": 10,
+    "providers": [
+      "jev",
+      "llm"
+    ],
+    "requestedModels": {
+      "jev": "typesafe/jev-1.13",
+      "llm": "openai/gpt-5.6-sol"
+    },
+    "returnedModels": {
+      "jev": [
+        "typesafe/jev-1.13-20260917"
+      ],
+      "llm": [
+        "openai/gpt-5.6-sol"
+      ]
+    },
+    "upstreams": {
+      "jev": [
+        "TypeSafe"
+      ],
+      "llm": [
+        "OpenAI"
+      ]
+    },
+    "requestSettings": {
+      "llm": {
+        "reasoning_effort": "low"
+      }
+    },
+    "scoredCalls": 240,
+    "questionsSha256": "267e495a15ced2c2d19b26d6f5bd3332c05363889c66f6fe244694cddc99e618",
+    "datasetInputsSha256": "00f19d887f9ee71c0dbb3011926ef5d8d6c0f08fe0c8fcd34144c9b4cd89fb44",
+    "scoredWithLabelsSha256": "900bab285f88f0d1dc7cb8e33d0f4576e532fce3bf9bcc92ca818d20681571a4",
+    "summaryComputedAt": "2026-10-04T13:31:40.731Z"
+  },
+  {
     "runId": "run-20261004-083401",
     "label": "gpt-5.6-sol, low effort",
     "startedAt": "2026-10-04T08:34:01.479Z",
+    "design": "standard",
+    "batchSize": 1,
     "providers": [
       "llm"
     ],
@@ -28,12 +112,14 @@
     "questionsSha256": "267e495a15ced2c2d19b26d6f5bd3332c05363889c66f6fe244694cddc99e618",
     "datasetInputsSha256": "00f19d887f9ee71c0dbb3011926ef5d8d6c0f08fe0c8fcd34144c9b4cd89fb44",
     "scoredWithLabelsSha256": "900bab285f88f0d1dc7cb8e33d0f4576e532fce3bf9bcc92ca818d20681571a4",
-    "summaryComputedAt": "2026-10-04T10:32:00.114Z"
+    "summaryComputedAt": "2026-10-04T13:31:39.605Z"
   },
   {
     "runId": "run-20261003-213701",
     "label": "second run, observed-impact wording",
     "startedAt": "2026-10-03T21:37:01.208Z",
+    "design": "standard",
+    "batchSize": 1,
     "providers": [
       "jev",
       "llm"
@@ -64,6 +150,6 @@
     "questionsSha256": "267e495a15ced2c2d19b26d6f5bd3332c05363889c66f6fe244694cddc99e618",
     "datasetInputsSha256": "00f19d887f9ee71c0dbb3011926ef5d8d6c0f08fe0c8fcd34144c9b4cd89fb44",
     "scoredWithLabelsSha256": "900bab285f88f0d1dc7cb8e33d0f4576e532fce3bf9bcc92ca818d20681571a4",
-    "summaryComputedAt": "2026-10-04T10:31:58.752Z"
+    "summaryComputedAt": "2026-10-04T13:31:38.535Z"
   }
 ]

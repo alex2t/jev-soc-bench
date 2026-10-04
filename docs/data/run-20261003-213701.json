@@ -55,9 +55,10 @@
     "completedCalls": 240,
     "datasetInputsSha256": "00f19d887f9ee71c0dbb3011926ef5d8d6c0f08fe0c8fcd34144c9b4cd89fb44",
     "scoredWithLabelsSha256": "900bab285f88f0d1dc7cb8e33d0f4576e532fce3bf9bcc92ca818d20681571a4",
-    "summaryComputedAt": "2026-10-04T10:31:58.752Z",
-    "summaryGitCommit": "4d51bd6",
-    "publishedPartial": false
+    "summaryComputedAt": "2026-10-04T13:31:38.535Z",
+    "summaryGitCommit": "78aa4c3",
+    "publishedPartial": false,
+    "usageBackfill": "cachedInputTokens for 242 records taken from rawResponse at publication (F-43)"
   },
   "records": [
     {
@@ -73,7 +74,8 @@
       "usage": {
         "inputTokens": 725,
         "outputTokens": 89,
-        "costUsd": 0.00003045
+        "costUsd": 0.00003045,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -168,7 +170,8 @@
       "usage": {
         "inputTokens": 531,
         "outputTokens": 19,
-        "costUsd": 0.00009105
+        "costUsd": 0.00009105,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063424-UpACf3NC4LCHc3laCTWT",
@@ -255,7 +258,8 @@
       "usage": {
         "inputTokens": 721,
         "outputTokens": 89,
-        "costUsd": 0.000030282
+        "costUsd": 0.000030282,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -350,7 +354,8 @@
       "usage": {
         "inputTokens": 535,
         "outputTokens": 19,
-        "costUsd": 0.00009165
+        "costUsd": 0.00009165,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063425-4IIHJqvKGU4D8XmJlNch",
@@ -437,7 +442,8 @@
       "usage": {
         "inputTokens": 727,
         "outputTokens": 89,
-        "costUsd": 0.000030534
+        "costUsd": 0.000030534,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -532,7 +538,8 @@
       "usage": {
         "inputTokens": 575,
         "outputTokens": 20,
-        "costUsd": 0.00009825
+        "costUsd": 0.00009825,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063425-wIuBt3pZChZBOXLT4ZB0",
@@ -619,7 +626,8 @@
       "usage": {
         "inputTokens": 539,
         "outputTokens": 19,
-        "costUsd": 0.00009225
+        "costUsd": 0.00009225,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063426-nhjiKtRC4AYctVNFhmm1",
@@ -706,7 +714,8 @@
       "usage": {
         "inputTokens": 750,
         "outputTokens": 89,
-        "costUsd": 0.0000315
+        "costUsd": 0.0000315,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -801,7 +810,8 @@
       "usage": {
         "inputTokens": 558,
         "outputTokens": 20,
-        "costUsd": 0.0000957
+        "costUsd": 0.0000957,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063426-rt2q9vBMKCSWPPn612f4",
@@ -888,7 +898,8 @@
       "usage": {
         "inputTokens": 563,
         "outputTokens": 20,
-        "costUsd": 0.00009645
+        "costUsd": 0.00009645,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063426-qfmKLrG1QVgT1zvnbKT3",
@@ -975,7 +986,8 @@
       "usage": {
         "inputTokens": 733,
         "outputTokens": 89,
-        "costUsd": 0.000030786
+        "costUsd": 0.000030786,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -1070,7 +1082,8 @@
       "usage": {
         "inputTokens": 546,
         "outputTokens": 19,
-        "costUsd": 0.0000933
+        "costUsd": 0.0000933,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063427-YgroeG4Xse1IWLkHSRJ3",
@@ -1157,7 +1170,8 @@
       "usage": {
         "inputTokens": 536,
         "outputTokens": 19,
-        "costUsd": 0.0000918
+        "costUsd": 0.0000918,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063428-ql9MQlvzgnCom2dWRDid",
@@ -1244,7 +1258,8 @@
       "usage": {
         "inputTokens": 740,
         "outputTokens": 90,
-        "costUsd": 0.00003108
+        "costUsd": 0.00003108,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -1339,7 +1354,8 @@
       "usage": {
         "inputTokens": 719,
         "outputTokens": 89,
-        "costUsd": 0.000030198
+        "costUsd": 0.000030198,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -1434,7 +1450,8 @@
       "usage": {
         "inputTokens": 726,
         "outputTokens": 89,
-        "costUsd": 0.000030492
+        "costUsd": 0.000030492,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -1529,7 +1546,8 @@
       "usage": {
         "inputTokens": 572,
         "outputTokens": 19,
-        "costUsd": 0.0000972
+        "costUsd": 0.0000972,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063429-s330D5DdY11CS3gdwlsZ",
@@ -1616,7 +1634,8 @@
       "usage": {
         "inputTokens": 546,
         "outputTokens": 19,
-        "costUsd": 0.0000933
+        "costUsd": 0.0000933,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063430-GoMSvdJ7eOdxM6HNmVqv",
@@ -1703,7 +1722,8 @@
       "usage": {
         "inputTokens": 722,
         "outputTokens": 90,
-        "costUsd": 0.000030324
+        "costUsd": 0.000030324,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -1798,7 +1818,8 @@
       "usage": {
         "inputTokens": 721,
         "outputTokens": 89,
-        "costUsd": 0.000030282
+        "costUsd": 0.000030282,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -1893,7 +1914,8 @@
       "usage": {
         "inputTokens": 757,
         "outputTokens": 90,
-        "costUsd": 0.000031794
+        "costUsd": 0.000031794,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -1988,7 +2010,8 @@
       "usage": {
         "inputTokens": 541,
         "outputTokens": 19,
-        "costUsd": 0.00009255
+        "costUsd": 0.00009255,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063431-axFI7zLPn81DvPmqOI9O",
@@ -2075,7 +2098,8 @@
       "usage": {
         "inputTokens": 743,
         "outputTokens": 89,
-        "costUsd": 0.000031206
+        "costUsd": 0.000031206,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -2170,7 +2194,8 @@
       "usage": {
         "inputTokens": 545,
         "outputTokens": 19,
-        "costUsd": 0.00009315
+        "costUsd": 0.00009315,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063431-QkckcZ4Qm50b23cQ5jQP",
@@ -2257,7 +2282,8 @@
       "usage": {
         "inputTokens": 531,
         "outputTokens": 19,
-        "costUsd": 0.00009105
+        "costUsd": 0.00009105,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063431-Tcee1LmKlaV0udK33tFE",
@@ -2344,7 +2370,8 @@
       "usage": {
         "inputTokens": 750,
         "outputTokens": 89,
-        "costUsd": 0.0000315
+        "costUsd": 0.0000315,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -2439,7 +2466,8 @@
       "usage": {
         "inputTokens": 747,
         "outputTokens": 89,
-        "costUsd": 0.000031374
+        "costUsd": 0.000031374,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -2534,7 +2562,8 @@
       "usage": {
         "inputTokens": 557,
         "outputTokens": 19,
-        "costUsd": 0.00009495
+        "costUsd": 0.00009495,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063432-1Zygr60TPC3U6tBofnGW",
@@ -2621,7 +2650,8 @@
       "usage": {
         "inputTokens": 782,
         "outputTokens": 90,
-        "costUsd": 0.000032844
+        "costUsd": 0.000032844,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -2716,7 +2746,8 @@
       "usage": {
         "inputTokens": 727,
         "outputTokens": 89,
-        "costUsd": 0.000030534
+        "costUsd": 0.000030534,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -2811,7 +2842,8 @@
       "usage": {
         "inputTokens": 546,
         "outputTokens": 19,
-        "costUsd": 0.0000933
+        "costUsd": 0.0000933,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063433-DKHpZLHbHcEv6GolvnFk",
@@ -2898,7 +2930,8 @@
       "usage": {
         "inputTokens": 771,
         "outputTokens": 90,
-        "costUsd": 0.000032382
+        "costUsd": 0.000032382,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -2993,7 +3026,8 @@
       "usage": {
         "inputTokens": 554,
         "outputTokens": 20,
-        "costUsd": 0.0000951
+        "costUsd": 0.0000951,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063434-uMmF9k6hPj4P6GmIpv3Y",
@@ -3080,7 +3114,8 @@
       "usage": {
         "inputTokens": 721,
         "outputTokens": 89,
-        "costUsd": 0.000030282
+        "costUsd": 0.000030282,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -3175,7 +3210,8 @@
       "usage": {
         "inputTokens": 737,
         "outputTokens": 89,
-        "costUsd": 0.000030954
+        "costUsd": 0.000030954,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -3270,7 +3306,8 @@
       "usage": {
         "inputTokens": 727,
         "outputTokens": 89,
-        "costUsd": 0.000030534
+        "costUsd": 0.000030534,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -3365,7 +3402,8 @@
       "usage": {
         "inputTokens": 748,
         "outputTokens": 89,
-        "costUsd": 0.000031416
+        "costUsd": 0.000031416,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -3460,7 +3498,8 @@
       "usage": {
         "inputTokens": 547,
         "outputTokens": 19,
-        "costUsd": 0.00009345
+        "costUsd": 0.00009345,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063435-fEVu9bfqtF307VJohoKM",
@@ -3547,7 +3586,8 @@
       "usage": {
         "inputTokens": 551,
         "outputTokens": 20,
-        "costUsd": 0.00009465
+        "costUsd": 0.00009465,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063435-RTqY1G6612b3JS6VTfig",
@@ -3634,7 +3674,8 @@
       "usage": {
         "inputTokens": 751,
         "outputTokens": 90,
-        "costUsd": 0.000031542
+        "costUsd": 0.000031542,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -3729,7 +3770,8 @@
       "usage": {
         "inputTokens": 540,
         "outputTokens": 19,
-        "costUsd": 0.0000924
+        "costUsd": 0.0000924,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063436-VUG2iBhqwSOO9a9YOyiL",
@@ -3816,7 +3858,8 @@
       "usage": {
         "inputTokens": 561,
         "outputTokens": 20,
-        "costUsd": 0.00009615
+        "costUsd": 0.00009615,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063436-idWioaxaEfgaJVYsAoG8",
@@ -3903,7 +3946,8 @@
       "usage": {
         "inputTokens": 559,
         "outputTokens": 19,
-        "costUsd": 0.00009525
+        "costUsd": 0.00009525,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063437-oBwFd753abp3eZ7enLOk",
@@ -3990,7 +4034,8 @@
       "usage": {
         "inputTokens": 733,
         "outputTokens": 89,
-        "costUsd": 0.000030786
+        "costUsd": 0.000030786,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -4085,7 +4130,8 @@
       "usage": {
         "inputTokens": 540,
         "outputTokens": 19,
-        "costUsd": 0.0000924
+        "costUsd": 0.0000924,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063437-CcqthM7z2yErQ7RLwf3S",
@@ -4172,7 +4218,8 @@
       "usage": {
         "inputTokens": 534,
         "outputTokens": 19,
-        "costUsd": 0.0000915
+        "costUsd": 0.0000915,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063438-YReKfZpUbyVSlsKTCghj",
@@ -4259,7 +4306,8 @@
       "usage": {
         "inputTokens": 555,
         "outputTokens": 20,
-        "costUsd": 0.00009525
+        "costUsd": 0.00009525,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063438-GBjpLVWVveHihe9JUEAM",
@@ -4346,7 +4394,8 @@
       "usage": {
         "inputTokens": 737,
         "outputTokens": 89,
-        "costUsd": 0.000030954
+        "costUsd": 0.000030954,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -4441,7 +4490,8 @@
       "usage": {
         "inputTokens": 575,
         "outputTokens": 20,
-        "costUsd": 0.00009825
+        "costUsd": 0.00009825,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063439-ycLX0caTwepn5msZkwXj",
@@ -4528,7 +4578,8 @@
       "usage": {
         "inputTokens": 539,
         "outputTokens": 19,
-        "costUsd": 0.00009225
+        "costUsd": 0.00009225,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063439-CUfCztRXbqhiCxPSdSkP",
@@ -4615,7 +4666,8 @@
       "usage": {
         "inputTokens": 782,
         "outputTokens": 90,
-        "costUsd": 0.000032844
+        "costUsd": 0.000032844,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -4710,7 +4762,8 @@
       "usage": {
         "inputTokens": 553,
         "outputTokens": 19,
-        "costUsd": 0.00009435
+        "costUsd": 0.00009435,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063441-cGJ0TmQ9dSaMxb1mAn9N",
@@ -4797,7 +4850,8 @@
       "usage": {
         "inputTokens": 743,
         "outputTokens": 89,
-        "costUsd": 0.000031206
+        "costUsd": 0.000031206,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -4892,7 +4946,8 @@
       "usage": {
         "inputTokens": 563,
         "outputTokens": 20,
-        "costUsd": 0.00009645
+        "costUsd": 0.00009645,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063441-hQzggbPWj1yDv99ov2QM",
@@ -4979,7 +5034,8 @@
       "usage": {
         "inputTokens": 534,
         "outputTokens": 19,
-        "costUsd": 0.0000915
+        "costUsd": 0.0000915,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063442-4qdzTdvmYppe2mayrJNC",
@@ -5066,7 +5122,8 @@
       "usage": {
         "inputTokens": 739,
         "outputTokens": 89,
-        "costUsd": 0.000031038
+        "costUsd": 0.000031038,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -5161,7 +5218,8 @@
       "usage": {
         "inputTokens": 747,
         "outputTokens": 89,
-        "costUsd": 0.000031374
+        "costUsd": 0.000031374,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -5256,7 +5314,8 @@
       "usage": {
         "inputTokens": 722,
         "outputTokens": 90,
-        "costUsd": 0.000030324
+        "costUsd": 0.000030324,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -5351,7 +5410,8 @@
       "usage": {
         "inputTokens": 545,
         "outputTokens": 19,
-        "costUsd": 0.00009315
+        "costUsd": 0.00009315,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063443-9DIGLQAtcjN88A9v0DW7",
@@ -5438,7 +5498,8 @@
       "usage": {
         "inputTokens": 553,
         "outputTokens": 19,
-        "costUsd": 0.00009435
+        "costUsd": 0.00009435,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063443-7bf8uxXDo9fxGUXTda2M",
@@ -5525,7 +5586,8 @@
       "usage": {
         "inputTokens": 547,
         "outputTokens": 19,
-        "costUsd": 0.00009345
+        "costUsd": 0.00009345,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063443-GeyRhjkV4zI9inyG9fKJ",
@@ -5612,7 +5674,8 @@
       "usage": {
         "inputTokens": 771,
         "outputTokens": 90,
-        "costUsd": 0.000032382
+        "costUsd": 0.000032382,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -5707,7 +5770,8 @@
       "usage": {
         "inputTokens": 561,
         "outputTokens": 19,
-        "costUsd": 0.00009555
+        "costUsd": 0.00009555,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063445-BfSDOMQ5ZHrGFX1wVZkL",
@@ -5794,7 +5858,8 @@
       "usage": {
         "inputTokens": 546,
         "outputTokens": 19,
-        "costUsd": 0.0000933
+        "costUsd": 0.0000933,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063445-DAkYOhk60WvziYZaGnfw",
@@ -5881,7 +5946,8 @@
       "usage": {
         "inputTokens": 557,
         "outputTokens": 19,
-        "costUsd": 0.00009495
+        "costUsd": 0.00009495,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063446-7hNp8qlbwR4YAELapn5i",
@@ -5968,7 +6034,8 @@
       "usage": {
         "inputTokens": 541,
         "outputTokens": 19,
-        "costUsd": 0.00009255
+        "costUsd": 0.00009255,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063446-Ja8wKB7a7OIEwPJvO00A",
@@ -6055,7 +6122,8 @@
       "usage": {
         "inputTokens": 554,
         "outputTokens": 19,
-        "costUsd": 0.0000945
+        "costUsd": 0.0000945,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063446-7VRCYsLYnUkV6RjdOhVR",
@@ -6142,7 +6210,8 @@
       "usage": {
         "inputTokens": 751,
         "outputTokens": 89,
-        "costUsd": 0.000031542
+        "costUsd": 0.000031542,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -6237,7 +6306,8 @@
       "usage": {
         "inputTokens": 743,
         "outputTokens": 89,
-        "costUsd": 0.000031206
+        "costUsd": 0.000031206,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -6332,7 +6402,8 @@
       "usage": {
         "inputTokens": 719,
         "outputTokens": 89,
-        "costUsd": 0.000030198
+        "costUsd": 0.000030198,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -6427,7 +6498,8 @@
       "usage": {
         "inputTokens": 757,
         "outputTokens": 90,
-        "costUsd": 0.000031794
+        "costUsd": 0.000031794,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -6522,7 +6594,8 @@
       "usage": {
         "inputTokens": 559,
         "outputTokens": 19,
-        "costUsd": 0.00009525
+        "costUsd": 0.00009525,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063447-K8Gwf9fKBov1ktRn0OzU",
@@ -6609,7 +6682,8 @@
       "usage": {
         "inputTokens": 743,
         "outputTokens": 89,
-        "costUsd": 0.000031206
+        "costUsd": 0.000031206,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -6704,7 +6778,8 @@
       "usage": {
         "inputTokens": 751,
         "outputTokens": 90,
-        "costUsd": 0.000031542
+        "costUsd": 0.000031542,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -6799,7 +6874,8 @@
       "usage": {
         "inputTokens": 725,
         "outputTokens": 89,
-        "costUsd": 0.00003045
+        "costUsd": 0.00003045,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -6894,7 +6970,8 @@
       "usage": {
         "inputTokens": 551,
         "outputTokens": 19,
-        "costUsd": 0.00009405
+        "costUsd": 0.00009405,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063448-ap4SqrgnlA5Y0rcofzLi",
@@ -6981,7 +7058,8 @@
       "usage": {
         "inputTokens": 536,
         "outputTokens": 19,
-        "costUsd": 0.0000918
+        "costUsd": 0.0000918,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063448-39ysUSP6w8RKMlOnB6pR",
@@ -7068,7 +7146,8 @@
       "usage": {
         "inputTokens": 568,
         "outputTokens": 20,
-        "costUsd": 0.0000972
+        "costUsd": 0.0000972,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063449-MoxPhdYJSwXwnphg0msz",
@@ -7155,7 +7234,8 @@
       "usage": {
         "inputTokens": 733,
         "outputTokens": 89,
-        "costUsd": 0.000030786
+        "costUsd": 0.000030786,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -7250,7 +7330,8 @@
       "usage": {
         "inputTokens": 533,
         "outputTokens": 19,
-        "costUsd": 0.00009135
+        "costUsd": 0.00009135,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063450-HGC6F3cbx6v32Zr6pFFx",
@@ -7337,7 +7418,8 @@
       "usage": {
         "inputTokens": 559,
         "outputTokens": 19,
-        "costUsd": 0.00009525
+        "costUsd": 0.00009525,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063450-QBkfDOrElmNDzH5TWryW",
@@ -7424,7 +7506,8 @@
       "usage": {
         "inputTokens": 734,
         "outputTokens": 89,
-        "costUsd": 0.000030828
+        "costUsd": 0.000030828,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -7519,7 +7602,8 @@
       "usage": {
         "inputTokens": 737,
         "outputTokens": 89,
-        "costUsd": 0.000030954
+        "costUsd": 0.000030954,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -7614,7 +7698,8 @@
       "usage": {
         "inputTokens": 726,
         "outputTokens": 89,
-        "costUsd": 0.000030492
+        "costUsd": 0.000030492,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -7709,7 +7794,8 @@
       "usage": {
         "inputTokens": 748,
         "outputTokens": 89,
-        "costUsd": 0.000031416
+        "costUsd": 0.000031416,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -7804,7 +7890,8 @@
       "usage": {
         "inputTokens": 536,
         "outputTokens": 19,
-        "costUsd": 0.0000918
+        "costUsd": 0.0000918,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063452-YWif3vWA6axUhCkXmd2h",
@@ -7891,7 +7978,8 @@
       "usage": {
         "inputTokens": 727,
         "outputTokens": 89,
-        "costUsd": 0.000030534
+        "costUsd": 0.000030534,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -7986,7 +8074,8 @@
       "usage": {
         "inputTokens": 727,
         "outputTokens": 89,
-        "costUsd": 0.000030534
+        "costUsd": 0.000030534,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -8081,7 +8170,8 @@
       "usage": {
         "inputTokens": 541,
         "outputTokens": 19,
-        "costUsd": 0.00009255
+        "costUsd": 0.00009255,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063453-og4I0o9Vuk4F2Px14Zam",
@@ -8168,7 +8258,8 @@
       "usage": {
         "inputTokens": 546,
         "outputTokens": 19,
-        "costUsd": 0.0000933
+        "costUsd": 0.0000933,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063453-l8nBzy23ZmaECTxmfaCM",
@@ -8255,7 +8346,8 @@
       "usage": {
         "inputTokens": 741,
         "outputTokens": 89,
-        "costUsd": 0.000031122
+        "costUsd": 0.000031122,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -8350,7 +8442,8 @@
       "usage": {
         "inputTokens": 590,
         "outputTokens": 20,
-        "costUsd": 0.0001005
+        "costUsd": 0.0001005,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063454-seN3YrNxxI1euk7SMdsF",
@@ -8437,7 +8530,8 @@
       "usage": {
         "inputTokens": 740,
         "outputTokens": 90,
-        "costUsd": 0.00003108
+        "costUsd": 0.00003108,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -8532,7 +8626,8 @@
       "usage": {
         "inputTokens": 542,
         "outputTokens": 19,
-        "costUsd": 0.0000927
+        "costUsd": 0.0000927,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063455-0jdI750L8m5OXUdhQM4y",
@@ -8619,7 +8714,8 @@
       "usage": {
         "inputTokens": 533,
         "outputTokens": 19,
-        "costUsd": 0.00009135
+        "costUsd": 0.00009135,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063456-aMjdjCn3915Klk5Qzcq0",
@@ -8706,7 +8802,8 @@
       "usage": {
         "inputTokens": 733,
         "outputTokens": 89,
-        "costUsd": 0.000030786
+        "costUsd": 0.000030786,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -8801,7 +8898,8 @@
       "usage": {
         "inputTokens": 773,
         "outputTokens": 89,
-        "costUsd": 0.000032466
+        "costUsd": 0.000032466,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -8896,7 +8994,8 @@
       "usage": {
         "inputTokens": 749,
         "outputTokens": 89,
-        "costUsd": 0.000031458
+        "costUsd": 0.000031458,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -8991,7 +9090,8 @@
       "usage": {
         "inputTokens": 531,
         "outputTokens": 19,
-        "costUsd": 0.00009105
+        "costUsd": 0.00009105,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063457-b1yA8AmR7dFibaw6JFyJ",
@@ -9078,7 +9178,8 @@
       "usage": {
         "inputTokens": 749,
         "outputTokens": 89,
-        "costUsd": 0.000031458
+        "costUsd": 0.000031458,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -9173,7 +9274,8 @@
       "usage": {
         "inputTokens": 733,
         "outputTokens": 90,
-        "costUsd": 0.000030786
+        "costUsd": 0.000030786,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -9268,7 +9370,8 @@
       "usage": {
         "inputTokens": 734,
         "outputTokens": 89,
-        "costUsd": 0.000030828
+        "costUsd": 0.000030828,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -9363,7 +9466,8 @@
       "usage": {
         "inputTokens": 574,
         "outputTokens": 19,
-        "costUsd": 0.0000975
+        "costUsd": 0.0000975,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063458-WvPH1zKw1RNEK7vQXdQO",
@@ -9450,7 +9554,8 @@
       "usage": {
         "inputTokens": 536,
         "outputTokens": 19,
-        "costUsd": 0.0000918
+        "costUsd": 0.0000918,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063458-KWoOFeL2AfLNDaPEyNfu",
@@ -9537,7 +9642,8 @@
       "usage": {
         "inputTokens": 734,
         "outputTokens": 89,
-        "costUsd": 0.000030828
+        "costUsd": 0.000030828,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -9632,7 +9738,8 @@
       "usage": {
         "inputTokens": 535,
         "outputTokens": 19,
-        "costUsd": 0.00009165
+        "costUsd": 0.00009165,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063459-piVGbkOdyaKkO0JRbSFR",
@@ -9719,7 +9826,8 @@
       "usage": {
         "inputTokens": 768,
         "outputTokens": 90,
-        "costUsd": 0.000032256
+        "costUsd": 0.000032256,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -9814,7 +9922,8 @@
       "usage": {
         "inputTokens": 737,
         "outputTokens": 89,
-        "costUsd": 0.000030954
+        "costUsd": 0.000030954,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -9909,7 +10018,8 @@
       "usage": {
         "inputTokens": 555,
         "outputTokens": 20,
-        "costUsd": 0.00009525
+        "costUsd": 0.00009525,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063460-9fnXv8EIYSXjqyv7rJ1M",
@@ -9996,7 +10106,8 @@
       "usage": {
         "inputTokens": 554,
         "outputTokens": 20,
-        "costUsd": 0.0000951
+        "costUsd": 0.0000951,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063460-n73nlYytcGBX8rcYo7wk",
@@ -10083,7 +10194,8 @@
       "usage": {
         "inputTokens": 721,
         "outputTokens": 89,
-        "costUsd": 0.000030282
+        "costUsd": 0.000030282,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -10178,7 +10290,8 @@
       "usage": {
         "inputTokens": 572,
         "outputTokens": 19,
-        "costUsd": 0.0000972
+        "costUsd": 0.0000972,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063461-9D61CBWzKFST00hq3Tor",
@@ -10265,7 +10378,8 @@
       "usage": {
         "inputTokens": 721,
         "outputTokens": 89,
-        "costUsd": 0.000030282
+        "costUsd": 0.000030282,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -10360,7 +10474,8 @@
       "usage": {
         "inputTokens": 768,
         "outputTokens": 90,
-        "costUsd": 0.000032256
+        "costUsd": 0.000032256,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -10455,7 +10570,8 @@
       "usage": {
         "inputTokens": 563,
         "outputTokens": 20,
-        "costUsd": 0.00009645
+        "costUsd": 0.00009645,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063461-vIUpfFt3xOauGwGF7mUV",
@@ -10542,7 +10658,8 @@
       "usage": {
         "inputTokens": 773,
         "outputTokens": 89,
-        "costUsd": 0.000032466
+        "costUsd": 0.000032466,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -10637,7 +10754,8 @@
       "usage": {
         "inputTokens": 743,
         "outputTokens": 89,
-        "costUsd": 0.000031206
+        "costUsd": 0.000031206,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -10732,7 +10850,8 @@
       "usage": {
         "inputTokens": 751,
         "outputTokens": 90,
-        "costUsd": 0.000031542
+        "costUsd": 0.000031542,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -10827,7 +10946,8 @@
       "usage": {
         "inputTokens": 561,
         "outputTokens": 19,
-        "costUsd": 0.00009555
+        "costUsd": 0.00009555,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063462-bWZ4S2Q7HE1Qo4UaQcmm",
@@ -10914,7 +11034,8 @@
       "usage": {
         "inputTokens": 531,
         "outputTokens": 19,
-        "costUsd": 0.00009105
+        "costUsd": 0.00009105,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063462-aiPtiZK7gfcTR0OXQ3wU",
@@ -11001,7 +11122,8 @@
       "usage": {
         "inputTokens": 572,
         "outputTokens": 19,
-        "costUsd": 0.0000972
+        "costUsd": 0.0000972,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063463-K7xmysdOkacSSNI6S1AP",
@@ -11088,7 +11210,8 @@
       "usage": {
         "inputTokens": 751,
         "outputTokens": 89,
-        "costUsd": 0.000031542
+        "costUsd": 0.000031542,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -11183,7 +11306,8 @@
       "usage": {
         "inputTokens": 750,
         "outputTokens": 89,
-        "costUsd": 0.0000315
+        "costUsd": 0.0000315,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -11278,7 +11402,8 @@
       "usage": {
         "inputTokens": 542,
         "outputTokens": 19,
-        "costUsd": 0.0000927
+        "costUsd": 0.0000927,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063464-HyEnsLotaQA8zn5FGGNP",
@@ -11365,7 +11490,8 @@
       "usage": {
         "inputTokens": 555,
         "outputTokens": 20,
-        "costUsd": 0.00009525
+        "costUsd": 0.00009525,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063464-YsYZGshda8apd1mpepxK",
@@ -11452,7 +11578,8 @@
       "usage": {
         "inputTokens": 726,
         "outputTokens": 89,
-        "costUsd": 0.000030492
+        "costUsd": 0.000030492,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -11547,7 +11674,8 @@
       "usage": {
         "inputTokens": 551,
         "outputTokens": 20,
-        "costUsd": 0.00009465
+        "costUsd": 0.00009465,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063465-roBSLCzPKuh8ZSzhbXBN",
@@ -11634,7 +11762,8 @@
       "usage": {
         "inputTokens": 568,
         "outputTokens": 20,
-        "costUsd": 0.0000972
+        "costUsd": 0.0000972,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063465-EsuZafDmkSal6hhp2fXS",
@@ -11721,7 +11850,8 @@
       "usage": {
         "inputTokens": 558,
         "outputTokens": 20,
-        "costUsd": 0.0000957
+        "costUsd": 0.0000957,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063466-nc0EeG3pDmJGJqfo7HbZ",
@@ -11808,7 +11938,8 @@
       "usage": {
         "inputTokens": 574,
         "outputTokens": 19,
-        "costUsd": 0.0000975
+        "costUsd": 0.0000975,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063466-uMf9r0OCOjWl94rZ42nW",
@@ -11895,7 +12026,8 @@
       "usage": {
         "inputTokens": 575,
         "outputTokens": 20,
-        "costUsd": 0.00009825
+        "costUsd": 0.00009825,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063467-iHXXQ65s51pRcqJe3SW7",
@@ -11982,7 +12114,8 @@
       "usage": {
         "inputTokens": 722,
         "outputTokens": 90,
-        "costUsd": 0.000030324
+        "costUsd": 0.000030324,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -12077,7 +12210,8 @@
       "usage": {
         "inputTokens": 574,
         "outputTokens": 20,
-        "costUsd": 0.0000981
+        "costUsd": 0.0000981,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063467-aXgE1SiJMq9J1S9cDLpU",
@@ -12164,7 +12298,8 @@
       "usage": {
         "inputTokens": 590,
         "outputTokens": 20,
-        "costUsd": 0.0001005
+        "costUsd": 0.0001005,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063468-mb7lwsxATaNBS4vnKIKv",
@@ -12251,7 +12386,8 @@
       "usage": {
         "inputTokens": 546,
         "outputTokens": 19,
-        "costUsd": 0.0000933
+        "costUsd": 0.0000933,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063469-99ZVPO6XpmHqT9Tws8xW",
@@ -12338,7 +12474,8 @@
       "usage": {
         "inputTokens": 539,
         "outputTokens": 19,
-        "costUsd": 0.00009225
+        "costUsd": 0.00009225,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063469-6fGJm6IvZpkowk6uVhtN",
@@ -12425,7 +12562,8 @@
       "usage": {
         "inputTokens": 554,
         "outputTokens": 20,
-        "costUsd": 0.0000951
+        "costUsd": 0.0000951,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063469-AWmVT0JlJbDrP9QoKq0C",
@@ -12512,7 +12650,8 @@
       "usage": {
         "inputTokens": 739,
         "outputTokens": 89,
-        "costUsd": 0.000031038
+        "costUsd": 0.000031038,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -12607,7 +12746,8 @@
       "usage": {
         "inputTokens": 749,
         "outputTokens": 89,
-        "costUsd": 0.000031458
+        "costUsd": 0.000031458,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -12702,7 +12842,8 @@
       "usage": {
         "inputTokens": 757,
         "outputTokens": 90,
-        "costUsd": 0.000031794
+        "costUsd": 0.000031794,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -12797,7 +12938,8 @@
       "usage": {
         "inputTokens": 568,
         "outputTokens": 20,
-        "costUsd": 0.0000972
+        "costUsd": 0.0000972,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063470-OuZCtvnqxpCIO99yXUNl",
@@ -12884,7 +13026,8 @@
       "usage": {
         "inputTokens": 733,
         "outputTokens": 89,
-        "costUsd": 0.000030786
+        "costUsd": 0.000030786,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -12979,7 +13122,8 @@
       "usage": {
         "inputTokens": 540,
         "outputTokens": 19,
-        "costUsd": 0.0000924
+        "costUsd": 0.0000924,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063471-oMTdJA2UXbuPJPHpm4gY",
@@ -13066,7 +13210,8 @@
       "usage": {
         "inputTokens": 721,
         "outputTokens": 89,
-        "costUsd": 0.000030282
+        "costUsd": 0.000030282,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -13161,7 +13306,8 @@
       "usage": {
         "inputTokens": 754,
         "outputTokens": 89,
-        "costUsd": 0.000031668
+        "costUsd": 0.000031668,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -13256,7 +13402,8 @@
       "usage": {
         "inputTokens": 727,
         "outputTokens": 89,
-        "costUsd": 0.000030534
+        "costUsd": 0.000030534,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -13351,7 +13498,8 @@
       "usage": {
         "inputTokens": 574,
         "outputTokens": 19,
-        "costUsd": 0.0000975
+        "costUsd": 0.0000975,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063472-lLYTW5aOdCef6SS1hfj2",
@@ -13438,7 +13586,8 @@
       "usage": {
         "inputTokens": 773,
         "outputTokens": 89,
-        "costUsd": 0.000032466
+        "costUsd": 0.000032466,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -13533,7 +13682,8 @@
       "usage": {
         "inputTokens": 773,
         "outputTokens": 89,
-        "costUsd": 0.000032466
+        "costUsd": 0.000032466,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -13628,7 +13778,8 @@
       "usage": {
         "inputTokens": 727,
         "outputTokens": 89,
-        "costUsd": 0.000030534
+        "costUsd": 0.000030534,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -13723,7 +13874,8 @@
       "usage": {
         "inputTokens": 550,
         "outputTokens": 19,
-        "costUsd": 0.0000939
+        "costUsd": 0.0000939,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063473-92hcPSV8z8ZTo9yEVecG",
@@ -13810,7 +13962,8 @@
       "usage": {
         "inputTokens": 550,
         "outputTokens": 19,
-        "costUsd": 0.0000939
+        "costUsd": 0.0000939,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063473-elql6cfkspg0kJ9vpHnn",
@@ -13897,7 +14050,8 @@
       "usage": {
         "inputTokens": 737,
         "outputTokens": 89,
-        "costUsd": 0.000030954
+        "costUsd": 0.000030954,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -13992,7 +14146,8 @@
       "usage": {
         "inputTokens": 559,
         "outputTokens": 19,
-        "costUsd": 0.00009525
+        "costUsd": 0.00009525,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063473-iAHndbUKGjI8QlACHlI1",
@@ -14079,7 +14234,8 @@
       "usage": {
         "inputTokens": 739,
         "outputTokens": 89,
-        "costUsd": 0.000031038
+        "costUsd": 0.000031038,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -14174,7 +14330,8 @@
       "usage": {
         "inputTokens": 743,
         "outputTokens": 89,
-        "costUsd": 0.000031206
+        "costUsd": 0.000031206,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -14269,7 +14426,8 @@
       "usage": {
         "inputTokens": 751,
         "outputTokens": 89,
-        "costUsd": 0.000031542
+        "costUsd": 0.000031542,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -14364,7 +14522,8 @@
       "usage": {
         "inputTokens": 726,
         "outputTokens": 89,
-        "costUsd": 0.000030492
+        "costUsd": 0.000030492,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -14459,7 +14618,8 @@
       "usage": {
         "inputTokens": 744,
         "outputTokens": 90,
-        "costUsd": 0.000031248
+        "costUsd": 0.000031248,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -14554,7 +14714,8 @@
       "usage": {
         "inputTokens": 540,
         "outputTokens": 19,
-        "costUsd": 0.0000924
+        "costUsd": 0.0000924,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063475-T8eo1QDdCyEgV24CLSpH",
@@ -14641,7 +14802,8 @@
       "usage": {
         "inputTokens": 546,
         "outputTokens": 19,
-        "costUsd": 0.0000933
+        "costUsd": 0.0000933,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063475-lJdUCSAtUyTaWisEgy7A",
@@ -14728,7 +14890,8 @@
       "usage": {
         "inputTokens": 540,
         "outputTokens": 19,
-        "costUsd": 0.0000924
+        "costUsd": 0.0000924,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063476-5a9QBB6fO5kj71J7oxTE",
@@ -14815,7 +14978,8 @@
       "usage": {
         "inputTokens": 554,
         "outputTokens": 19,
-        "costUsd": 0.0000945
+        "costUsd": 0.0000945,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063477-uKCvu2ocahwx30CgR6Ox",
@@ -14902,7 +15066,8 @@
       "usage": {
         "inputTokens": 535,
         "outputTokens": 19,
-        "costUsd": 0.00009165
+        "costUsd": 0.00009165,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063477-ULo7AjsPjvFa77BHOsnk",
@@ -14989,7 +15154,8 @@
       "usage": {
         "inputTokens": 558,
         "outputTokens": 20,
-        "costUsd": 0.0000957
+        "costUsd": 0.0000957,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063477-QLhPSoHOFWb2ktBZzlDU",
@@ -15076,7 +15242,8 @@
       "usage": {
         "inputTokens": 725,
         "outputTokens": 89,
-        "costUsd": 0.00003045
+        "costUsd": 0.00003045,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -15171,7 +15338,8 @@
       "usage": {
         "inputTokens": 536,
         "outputTokens": 19,
-        "costUsd": 0.0000918
+        "costUsd": 0.0000918,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063479-OLl17Xec73LQjEJXlo1H",
@@ -15258,7 +15426,8 @@
       "usage": {
         "inputTokens": 550,
         "outputTokens": 19,
-        "costUsd": 0.0000939
+        "costUsd": 0.0000939,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063479-XeZUic30KfsRnTxGzGKo",
@@ -15345,7 +15514,8 @@
       "usage": {
         "inputTokens": 754,
         "outputTokens": 89,
-        "costUsd": 0.000031668
+        "costUsd": 0.000031668,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -15440,7 +15610,8 @@
       "usage": {
         "inputTokens": 559,
         "outputTokens": 19,
-        "costUsd": 0.00009525
+        "costUsd": 0.00009525,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063480-vPleYyOkmv9vuDBXMHWn",
@@ -15527,7 +15698,8 @@
       "usage": {
         "inputTokens": 721,
         "outputTokens": 89,
-        "costUsd": 0.000030282
+        "costUsd": 0.000030282,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -15622,7 +15794,8 @@
       "usage": {
         "inputTokens": 762,
         "outputTokens": 90,
-        "costUsd": 0.000032004
+        "costUsd": 0.000032004,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -15717,7 +15890,8 @@
       "usage": {
         "inputTokens": 546,
         "outputTokens": 19,
-        "costUsd": 0.0000933
+        "costUsd": 0.0000933,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063481-a4BMBH2NEMEhF1y1LgbX",
@@ -15804,7 +15978,8 @@
       "usage": {
         "inputTokens": 726,
         "outputTokens": 89,
-        "costUsd": 0.000030492
+        "costUsd": 0.000030492,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -15899,7 +16074,8 @@
       "usage": {
         "inputTokens": 733,
         "outputTokens": 89,
-        "costUsd": 0.000030786
+        "costUsd": 0.000030786,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -15994,7 +16170,8 @@
       "usage": {
         "inputTokens": 743,
         "outputTokens": 89,
-        "costUsd": 0.000031206
+        "costUsd": 0.000031206,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -16089,7 +16266,8 @@
       "usage": {
         "inputTokens": 554,
         "outputTokens": 19,
-        "costUsd": 0.0000945
+        "costUsd": 0.0000945,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063482-M0yCcukZOMTmUk3YvDpd",
@@ -16176,7 +16354,8 @@
       "usage": {
         "inputTokens": 565,
         "outputTokens": 19,
-        "costUsd": 0.00009615
+        "costUsd": 0.00009615,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063482-qi5rcvNyZ1sqluhNJgKI",
@@ -16263,7 +16442,8 @@
       "usage": {
         "inputTokens": 762,
         "outputTokens": 90,
-        "costUsd": 0.000032004
+        "costUsd": 0.000032004,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -16358,7 +16538,8 @@
       "usage": {
         "inputTokens": 768,
         "outputTokens": 90,
-        "costUsd": 0.000032256
+        "costUsd": 0.000032256,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -16453,7 +16634,8 @@
       "usage": {
         "inputTokens": 727,
         "outputTokens": 89,
-        "costUsd": 0.000030534
+        "costUsd": 0.000030534,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -16548,7 +16730,8 @@
       "usage": {
         "inputTokens": 733,
         "outputTokens": 90,
-        "costUsd": 0.000030786
+        "costUsd": 0.000030786,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -16643,7 +16826,8 @@
       "usage": {
         "inputTokens": 542,
         "outputTokens": 19,
-        "costUsd": 0.0000927
+        "costUsd": 0.0000927,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063483-wAt3zWo38ZBd35VT2wnD",
@@ -16730,7 +16914,8 @@
       "usage": {
         "inputTokens": 754,
         "outputTokens": 89,
-        "costUsd": 0.000031668
+        "costUsd": 0.000031668,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -16825,7 +17010,8 @@
       "usage": {
         "inputTokens": 561,
         "outputTokens": 19,
-        "costUsd": 0.00009555
+        "costUsd": 0.00009555,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063484-LwSwU1DjhAPk2l6xxtMn",
@@ -16912,7 +17098,8 @@
       "usage": {
         "inputTokens": 557,
         "outputTokens": 19,
-        "costUsd": 0.00009495
+        "costUsd": 0.00009495,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063485-Cax0B59djlFx8OYtSekm",
@@ -16999,7 +17186,8 @@
       "usage": {
         "inputTokens": 744,
         "outputTokens": 90,
-        "costUsd": 0.000031248
+        "costUsd": 0.000031248,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -17094,7 +17282,8 @@
       "usage": {
         "inputTokens": 733,
         "outputTokens": 90,
-        "costUsd": 0.000030786
+        "costUsd": 0.000030786,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -17189,7 +17378,8 @@
       "usage": {
         "inputTokens": 741,
         "outputTokens": 89,
-        "costUsd": 0.000031122
+        "costUsd": 0.000031122,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -17284,7 +17474,8 @@
       "usage": {
         "inputTokens": 574,
         "outputTokens": 20,
-        "costUsd": 0.0000981
+        "costUsd": 0.0000981,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063486-hvOsi9xnExb2Zm7rnSMG",
@@ -17371,7 +17562,8 @@
       "usage": {
         "inputTokens": 551,
         "outputTokens": 19,
-        "costUsd": 0.00009405
+        "costUsd": 0.00009405,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063486-nVN4ZBqrjyxeyPWvjJzA",
@@ -17458,7 +17650,8 @@
       "usage": {
         "inputTokens": 534,
         "outputTokens": 19,
-        "costUsd": 0.0000915
+        "costUsd": 0.0000915,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063487-Yx4Qpjd3JRR8Nh1n4pQp",
@@ -17545,7 +17738,8 @@
       "usage": {
         "inputTokens": 754,
         "outputTokens": 89,
-        "costUsd": 0.000031668
+        "costUsd": 0.000031668,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -17640,7 +17834,8 @@
       "usage": {
         "inputTokens": 560,
         "outputTokens": 19,
-        "costUsd": 0.0000954
+        "costUsd": 0.0000954,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063488-FBs9MtyPtNbn0eVCeNG5",
@@ -17727,7 +17922,8 @@
       "usage": {
         "inputTokens": 546,
         "outputTokens": 19,
-        "costUsd": 0.0000933
+        "costUsd": 0.0000933,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063488-N9chKbdQ3MtgaZ9zOZkM",
@@ -17814,7 +18010,8 @@
       "usage": {
         "inputTokens": 561,
         "outputTokens": 20,
-        "costUsd": 0.00009615
+        "costUsd": 0.00009615,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063490-AoLiRmNJ95LYIt33XKWo",
@@ -17901,7 +18098,8 @@
       "usage": {
         "inputTokens": 539,
         "outputTokens": 19,
-        "costUsd": 0.00009225
+        "costUsd": 0.00009225,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063490-CEaucAlM3Mmeu0Hy79Gr",
@@ -17988,7 +18186,8 @@
       "usage": {
         "inputTokens": 733,
         "outputTokens": 89,
-        "costUsd": 0.000030786
+        "costUsd": 0.000030786,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -18083,7 +18282,8 @@
       "usage": {
         "inputTokens": 773,
         "outputTokens": 89,
-        "costUsd": 0.000032466
+        "costUsd": 0.000032466,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -18178,7 +18378,8 @@
       "usage": {
         "inputTokens": 545,
         "outputTokens": 19,
-        "costUsd": 0.00009315
+        "costUsd": 0.00009315,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063491-msbpTegYlJlcc85jHGm3",
@@ -18265,7 +18466,8 @@
       "usage": {
         "inputTokens": 733,
         "outputTokens": 89,
-        "costUsd": 0.000030786
+        "costUsd": 0.000030786,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -18360,7 +18562,8 @@
       "usage": {
         "inputTokens": 727,
         "outputTokens": 89,
-        "costUsd": 0.000030534
+        "costUsd": 0.000030534,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -18455,7 +18658,8 @@
       "usage": {
         "inputTokens": 560,
         "outputTokens": 19,
-        "costUsd": 0.0000954
+        "costUsd": 0.0000954,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063492-BGHSi80lJHigoNyuDjS9",
@@ -18542,7 +18746,8 @@
       "usage": {
         "inputTokens": 561,
         "outputTokens": 20,
-        "costUsd": 0.00009615
+        "costUsd": 0.00009615,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063492-76Mc1mGHUVmxlLuXKY8j",
@@ -18629,7 +18834,8 @@
       "usage": {
         "inputTokens": 741,
         "outputTokens": 89,
-        "costUsd": 0.000031122
+        "costUsd": 0.000031122,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -18724,7 +18930,8 @@
       "usage": {
         "inputTokens": 533,
         "outputTokens": 19,
-        "costUsd": 0.00009135
+        "costUsd": 0.00009135,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063494-53iXmKkUfSiQ0lioxieO",
@@ -18811,7 +19018,8 @@
       "usage": {
         "inputTokens": 539,
         "outputTokens": 19,
-        "costUsd": 0.00009225
+        "costUsd": 0.00009225,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063494-1qF1aqH9spNyRJ4eGPfd",
@@ -18898,7 +19106,8 @@
       "usage": {
         "inputTokens": 747,
         "outputTokens": 89,
-        "costUsd": 0.000031374
+        "costUsd": 0.000031374,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -18993,7 +19202,8 @@
       "usage": {
         "inputTokens": 748,
         "outputTokens": 89,
-        "costUsd": 0.000031416
+        "costUsd": 0.000031416,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -19088,7 +19298,8 @@
       "usage": {
         "inputTokens": 771,
         "outputTokens": 90,
-        "costUsd": 0.000032382
+        "costUsd": 0.000032382,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -19183,7 +19394,8 @@
       "usage": {
         "inputTokens": 539,
         "outputTokens": 19,
-        "costUsd": 0.00009225
+        "costUsd": 0.00009225,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063495-RFitD9FPon0o1CUyGmLp",
@@ -19270,7 +19482,8 @@
       "usage": {
         "inputTokens": 725,
         "outputTokens": 89,
-        "costUsd": 0.00003045
+        "costUsd": 0.00003045,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -19365,7 +19578,8 @@
       "usage": {
         "inputTokens": 553,
         "outputTokens": 19,
-        "costUsd": 0.00009435
+        "costUsd": 0.00009435,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063495-UfUGGc9vnfMBFDOaSY6u",
@@ -19452,7 +19666,8 @@
       "usage": {
         "inputTokens": 721,
         "outputTokens": 89,
-        "costUsd": 0.000030282
+        "costUsd": 0.000030282,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -19547,7 +19762,8 @@
       "usage": {
         "inputTokens": 540,
         "outputTokens": 19,
-        "costUsd": 0.0000924
+        "costUsd": 0.0000924,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063497-3dRLW2Sh3s0NF3SLCR7N",
@@ -19634,7 +19850,8 @@
       "usage": {
         "inputTokens": 545,
         "outputTokens": 19,
-        "costUsd": 0.00009315
+        "costUsd": 0.00009315,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063497-cCHfeLvbC8m7CL1J63IO",
@@ -19721,7 +19938,8 @@
       "usage": {
         "inputTokens": 726,
         "outputTokens": 89,
-        "costUsd": 0.000030492
+        "costUsd": 0.000030492,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -19816,7 +20034,8 @@
       "usage": {
         "inputTokens": 560,
         "outputTokens": 19,
-        "costUsd": 0.0000954
+        "costUsd": 0.0000954,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063498-Uh5ssK10qTmV72avkYlV",
@@ -19903,7 +20122,8 @@
       "usage": {
         "inputTokens": 743,
         "outputTokens": 89,
-        "costUsd": 0.000031206
+        "costUsd": 0.000031206,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -19998,7 +20218,8 @@
       "usage": {
         "inputTokens": 782,
         "outputTokens": 90,
-        "costUsd": 0.000032844
+        "costUsd": 0.000032844,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -20093,7 +20314,8 @@
       "usage": {
         "inputTokens": 733,
         "outputTokens": 89,
-        "costUsd": 0.000030786
+        "costUsd": 0.000030786,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -20188,7 +20410,8 @@
       "usage": {
         "inputTokens": 754,
         "outputTokens": 89,
-        "costUsd": 0.000031668
+        "costUsd": 0.000031668,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -20283,7 +20506,8 @@
       "usage": {
         "inputTokens": 737,
         "outputTokens": 89,
-        "costUsd": 0.000030954
+        "costUsd": 0.000030954,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -20378,7 +20602,8 @@
       "usage": {
         "inputTokens": 547,
         "outputTokens": 19,
-        "costUsd": 0.00009345
+        "costUsd": 0.00009345,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063500-MJNrtaZHPy7Qk89Yd3ip",
@@ -20465,7 +20690,8 @@
       "usage": {
         "inputTokens": 762,
         "outputTokens": 90,
-        "costUsd": 0.000032004
+        "costUsd": 0.000032004,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -20560,7 +20786,8 @@
       "usage": {
         "inputTokens": 590,
         "outputTokens": 20,
-        "costUsd": 0.0001005
+        "costUsd": 0.0001005,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063500-QQQSVu6WJJEcPWFESV8P",
@@ -20647,7 +20874,8 @@
       "usage": {
         "inputTokens": 545,
         "outputTokens": 19,
-        "costUsd": 0.00009315
+        "costUsd": 0.00009315,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063501-1Ebu9QAzRb1uE13cnLxN",
@@ -20734,7 +20962,8 @@
       "usage": {
         "inputTokens": 574,
         "outputTokens": 20,
-        "costUsd": 0.0000981
+        "costUsd": 0.0000981,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063501-Jb56FJW9SfCF9ws1BL2X",
@@ -20821,7 +21050,8 @@
       "usage": {
         "inputTokens": 719,
         "outputTokens": 89,
-        "costUsd": 0.000030198
+        "costUsd": 0.000030198,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -20916,7 +21146,8 @@
       "usage": {
         "inputTokens": 536,
         "outputTokens": 19,
-        "costUsd": 0.0000918
+        "costUsd": 0.0000918,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063503-QoKwE5geEMkvTyqXotD3",
@@ -21003,7 +21234,8 @@
       "usage": {
         "inputTokens": 744,
         "outputTokens": 90,
-        "costUsd": 0.000031248
+        "costUsd": 0.000031248,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -21098,7 +21330,8 @@
       "usage": {
         "inputTokens": 565,
         "outputTokens": 19,
-        "costUsd": 0.00009615
+        "costUsd": 0.00009615,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063503-4rRycBq1ZT7fFZyuGiZI",
@@ -21185,7 +21418,8 @@
       "usage": {
         "inputTokens": 740,
         "outputTokens": 90,
-        "costUsd": 0.00003108
+        "costUsd": 0.00003108,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -21280,7 +21514,8 @@
       "usage": {
         "inputTokens": 773,
         "outputTokens": 89,
-        "costUsd": 0.000032466
+        "costUsd": 0.000032466,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -21375,7 +21610,8 @@
       "usage": {
         "inputTokens": 545,
         "outputTokens": 19,
-        "costUsd": 0.00009315
+        "costUsd": 0.00009315,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063504-N5BBZrN0T1hkLxjqqHko",
@@ -21462,7 +21698,8 @@
       "usage": {
         "inputTokens": 551,
         "outputTokens": 20,
-        "costUsd": 0.00009465
+        "costUsd": 0.00009465,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063504-uX66YV7ynRUOi6VY2tNL",
@@ -21549,7 +21786,8 @@
       "usage": {
         "inputTokens": 551,
         "outputTokens": 19,
-        "costUsd": 0.00009405
+        "costUsd": 0.00009405,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063505-tWOQEDTk7aMvXrKPZjxz",
@@ -21636,7 +21874,8 @@
       "usage": {
         "inputTokens": 754,
         "outputTokens": 89,
-        "costUsd": 0.000031668
+        "costUsd": 0.000031668,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -21731,7 +21970,8 @@
       "usage": {
         "inputTokens": 743,
         "outputTokens": 89,
-        "costUsd": 0.000031206
+        "costUsd": 0.000031206,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -21826,7 +22066,8 @@
       "usage": {
         "inputTokens": 559,
         "outputTokens": 19,
-        "costUsd": 0.00009525
+        "costUsd": 0.00009525,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063506-2tGfNE4CX3rMFjS1Xptq",
@@ -21913,7 +22154,8 @@
       "usage": {
         "inputTokens": 721,
         "outputTokens": 89,
-        "costUsd": 0.000030282
+        "costUsd": 0.000030282,
+        "cachedInputTokens": null
       },
       "rawResponse": {
         "model": "typesafe/jev-1.13-20260917",
@@ -22008,7 +22250,8 @@
       "usage": {
         "inputTokens": 565,
         "outputTokens": 19,
-        "costUsd": 0.00009615
+        "costUsd": 0.00009615,
+        "cachedInputTokens": 0
       },
       "rawResponse": {
         "id": "gen-1791063507-Zvd1kXRrqS4wGob1kdjy",
@@ -22202,7 +22445,14 @@
           "meanPerCallUsd": 0.000031169250000000023,
           "per1000AlertsUsd": 0.031169250000000023,
           "knownCalls": 120,
-          "unknownCalls": 0
+          "unknownCalls": 0,
+          "cachedInput": {
+            "share": null,
+            "cachedTokens": null,
+            "inputTokens": null,
+            "n": 0,
+            "unknownCalls": 120
+          }
         },
         "reasoningTokens": {
           "meanPerCall": null,
@@ -22560,7 +22810,14 @@
           "meanPerCallUsd": 0.00009436875000000003,
           "per1000AlertsUsd": 0.09436875000000003,
           "knownCalls": 120,
-          "unknownCalls": 0
+          "unknownCalls": 0,
+          "cachedInput": {
+            "share": 0,
+            "cachedTokens": 0,
+            "inputTokens": 66255,
+            "n": 120,
+            "unknownCalls": 0
+          }
         },
         "reasoningTokens": {
           "meanPerCall": null,
