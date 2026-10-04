@@ -68,7 +68,7 @@ async function runTask(task, ctx, warmup) {
  * Budget guard (F-4): in a live run, stop scheduling once known cost reaches maxUsd, or as soon
  * as a response arrives without a numeric cost, because the budget can then not be enforced.
  */
-function makeBudget(mock, maxUsd) {
+export function makeBudget(mock, maxUsd) {
   const budget = { spentUsd: 0, stoppedByBudget: false, stoppedByUnknownCost: false };
   return {
     budget,
@@ -83,7 +83,7 @@ function makeBudget(mock, maxUsd) {
   };
 }
 
-function distinct(records, field) {
+export function distinct(records, field) {
   const out = {};
   for (const r of records) if (r[field] != null) (out[r.provider] ??= new Set()).add(r[field]);
   return Object.fromEntries(Object.entries(out).map(([p, s]) => [p, [...s].sort()]));
@@ -93,6 +93,39 @@ export function runId(date) {
   const p = n => String(n).padStart(2, '0');
   return `run-${date.getUTCFullYear()}${p(date.getUTCMonth() + 1)}${p(date.getUTCDate())}`
     + `-${p(date.getUTCHours())}${p(date.getUTCMinutes())}${p(date.getUTCSeconds())}`;
+}
+
+/** Run metadata shared by every design (plan.md section 7); `records` include warm-ups. */
+export function runMeta({ startedAt, clock, options, policy, provenance, dataset, alerts, models, records, guard, batchSize, design, plannedCalls, warmups }) {
+  const { repeats, concurrency, maxUsd, seed, mock, label = null, requestSettings = null } = options;
+  return {
+    runId: runId(startedAt),
+    label,
+    startedAt: startedAt.toISOString(),
+    finishedAt: clock().toISOString(),
+    mock,
+    seed,
+    repeats,
+    concurrency,
+    batchSize,
+    design,
+    ...provenance,
+    labelledBy: dataset.labelledBy,
+    alerts: alerts.length,
+    policy,
+    requestedModels: models,
+    returnedModels: distinct(records, 'model'),
+    returnedProviders: distinct(records, 'upstreamProvider'),
+    requestSettings,
+    levelDerivation: LEVEL_DERIVATION,
+    budgetGuard: mock ? 'off (mock)' : 'on',
+    maxUsd: mock ? null : maxUsd,
+    spentUsd: mock ? null : guard.budget.spentUsd,
+    stoppedByBudget: guard.budget.stoppedByBudget,
+    stoppedByUnknownCost: guard.budget.stoppedByUnknownCost,
+    plannedCalls,
+    completedCalls: records.length - warmups,
+  };
 }
 
 /**
@@ -105,7 +138,7 @@ export async function runBenchmark({ questions, policy, dataset, providers, mode
   checkPolicy(policy);
   answerSchema(questions);
 
-  const { repeats, concurrency, maxUsd, seed, mock, label = null, alertIds = null, limit = null, requestSettings = null } = options;
+  const { repeats, concurrency, maxUsd, seed, mock, alertIds = null, limit = null } = options;
   const names = Object.keys(providers);
   const alerts = selectAlerts(dataset.alerts, { ids: alertIds, limit });
   const tasks = buildTasks(alerts, names, repeats, seed);
@@ -126,34 +159,8 @@ export async function runBenchmark({ questions, policy, dataset, providers, mode
   }, guard.shouldStop);
   const records = [...warmups, ...results.filter(Boolean)];
 
-  const meta = {
-    runId: runId(startedAt),
-    label,
-    startedAt: startedAt.toISOString(),
-    finishedAt: clock().toISOString(),
-    mock,
-    seed,
-    repeats,
-    concurrency,
-    batchSize: 1,
-    design: 'standard',
-    ...provenance,
-    labelledBy: dataset.labelledBy,
-    alerts: alerts.length,
-    policy,
-    requestedModels: models,
-    returnedModels: distinct(records, 'model'),
-    returnedProviders: distinct(records, 'upstreamProvider'),
-    requestSettings,
-    levelDerivation: LEVEL_DERIVATION,
-    budgetGuard: mock ? 'off (mock)' : 'on',
-    maxUsd: mock ? null : maxUsd,
-    spentUsd: mock ? null : guard.budget.spentUsd,
-    stoppedByBudget: guard.budget.stoppedByBudget,
-    stoppedByUnknownCost: guard.budget.stoppedByUnknownCost,
-    plannedCalls: tasks.length,
-    completedCalls: records.length - warmups.length,
-  };
+  const meta = runMeta({ startedAt, clock, options, policy, provenance, dataset, alerts, models, records, guard,
+    batchSize: 1, design: 'standard', plannedCalls: tasks.length, warmups: warmups.length });
   return { meta, records, summary: summarize(records, dataset.alerts, questions) };
 }
 
