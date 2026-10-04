@@ -11,12 +11,16 @@ export async function callJev({ state, questions, model, apiKey, fetchImpl = fet
   return { raw, latencyMs, model: raw.model ?? model, usage: normaliseUsage(raw.usage) };
 }
 
-/** Map OpenRouter usage to { inputTokens, outputTokens, costUsd }; unknown values are null. */
+/**
+ * Map OpenRouter usage to { inputTokens, outputTokens, reasoningTokens, costUsd }; unknown values
+ * are null. Output tokens include hidden reasoning tokens, which are billed as output (F-34).
+ */
 export function normaliseUsage(u) {
   if (!u) return null;
   return {
     inputTokens: u.input_tokens ?? u.prompt_tokens ?? null,
     outputTokens: u.output_tokens ?? u.completion_tokens ?? null,
+    reasoningTokens: typeof u.completion_tokens_details?.reasoning_tokens === 'number' ? u.completion_tokens_details.reasoning_tokens : null,
     costUsd: typeof u.cost === 'number' ? u.cost : null,
   };
 }

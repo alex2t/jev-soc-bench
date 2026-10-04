@@ -16,6 +16,9 @@ const ROWS = [
   ['Blast radius MAE', s => num(s.blastRadius.meanAbsError)],
   ['Latency p50 / p95', s => `${ms(s.latencyMs.p50)} / ${ms(s.latencyMs.p95)} (n=${s.latencyMs.n})`],
   ['Cost per 1,000 alerts', s => `${usd(s.cost.per1000AlertsUsd)} (known ${s.cost.knownCalls}, unknown ${s.cost.unknownCalls})`],
+  ['Reasoning tokens per call', s => (s.reasoningTokens.n === 0
+    ? `not reported (0 of ${s.reasoningTokens.unknownCalls} calls)`
+    : `${Math.round(s.reasoningTokens.meanPerCall)} (n=${s.reasoningTokens.n})`)],
   ['Same queue across repeats', s => pct(s.consistency.sameQueueShare)],
   ['Auto quarantine / close / review', s => `${s.automation.auto_quarantine.count} / ${s.automation.auto_close.count} / ${s.automation.analyst_review.count}`],
   ['Threats auto-closed', s => `${s.automation.threatsAutoClosed.count}${s.automation.threatsAutoClosed.count ? ` (${s.automation.threatsAutoClosed.alertIds.join(', ')})` : ''}`],

@@ -107,6 +107,12 @@ function cost(records) {
   };
 }
 
+/** Hidden reasoning tokens per call over calls that reported them (F-34); never assumed 0. */
+function reasoningTokens(records) {
+  const known = records.map(r => r.usage?.reasoningTokens).filter(t => typeof t === 'number');
+  return { meanPerCall: mean(known), n: known.length, unknownCalls: records.length - known.length };
+}
+
 function consistency(ok) {
   const byAlert = new Map();
   for (const r of ok) byAlert.set(r.alertId, [...(byAlert.get(r.alertId) ?? []), r]);
@@ -203,6 +209,7 @@ function providerSummary(records, alerts, classes, provider) {
     blastRadius: blastMetrics(ok),
     latencyMs: latency(ok),
     cost: cost(records),
+    reasoningTokens: reasoningTokens(records),
     consistency: consistency(ok),
     calibration: { queue: calibration(ok, 'queue'), blast_radius: calibration(ok, 'blast_radius') },
     noulReliability: noulReliability(ok, alerts, provider === 'llm'),
