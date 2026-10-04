@@ -138,6 +138,46 @@ a repeat of the gpt-5.6-sol batch run, 99.9% cached, cost $0.65 per 1,000 alerts
 The contamination runs resend the same companions and were 33-70% cached, so their cost is not
 compared. The dashboard shows the cached share next to every cost.
 
+## Adapting it to another domain
+
+The benchmark is built around three questions, each in its own role: a **choice** that routes the
+item (`queue`), a **noul** probability that triggers an automatic action (`quarantine`), and a
+**score** for severity (`blast_radius`). One choice option means "nothing to do" (`benign_noise`).
+Customer support, fraud review or content moderation fit the same shape.
+
+**Keep the three roles, change their content (recommended).** Keep the question IDs and types and
+change what they ask:
+
+| File | Change |
+|:--|:--|
+| `config/questions.json` | Instructions, choice options and score rubric for your domain. Keep the IDs `queue`, `quarantine`, `blast_radius` and their types. |
+| `data/alerts.json` | Your items: `state` (all the models see), `expected` labels, `rationale`, `difficulty`. Keep `state.alert_id` equal to `id`; the mock provider seeds on it. |
+| `src/dataset.js` | The validator checks SOC data and will reject anything else: `SEC-0001` IDs, RFC 5737 IP ranges, `example.com` domains, words that would leak the verdict. Replace these with your own synthetic-data rules. |
+| `src/providers/llm.js` | The first sentence of `SYSTEM` ("You triage security alerts."). |
+| `config/policy.json` | Thresholds for the automatic actions. |
+| `config/models.json`, `.env.example` | The LLMs to compare and their request settings. |
+| `docs/index.html`, `docs/app.js` | Page title, introduction and the caveats in the method box. |
+
+If your "nothing to do" option is not called `benign_noise`, rename it in `src/policy.js` (auto-close
+rule), `src/metrics.js` (`isThreat`, behind "threats auto-closed"), and `src/batch.js` and
+`src/batch-metrics.js` (contamination companions and flips to benign). The action names
+`auto_quarantine`, `auto_close` and `analyst_review` are only labels; rename them in `src/policy.js`,
+`src/metrics.js`, `src/report.js`, `src/batch-metrics.js` and `docs/charts.js` if you want.
+
+**Different questions.** Adding, removing or renaming questions goes much deeper, because the
+scoring, the policy, the metrics and the dashboard all name the three questions: `isCorrect` in
+`src/engine.js`, `decide` in `src/policy.js`, `src/metrics.js` (accuracy, quarantine and blast-radius
+metrics, calibration, reliability), `src/batch-metrics.js`, `src/report.js`, the label checks in
+`src/dataset.js`, and `docs/charts.js`, `docs/alerts.js`, `docs/app.js` and `docs/experiment.js`.
+
+**No change needed:** the providers (they send whatever questions and state they are given and
+parse answers by question ID), the runner and its budget guard, batching, publishing (`npm run
+publish`) and the preview server.
+
+The test suite is not published, so add your own checks before trusting the numbers: run
+`npm run check:dataset` and `npm run bench:mock`, and read a few raw responses from a small live
+run (`--limit=5 --repeats=1`).
+
 ## Credits
 
 - TypeSafe Jev, and [OpenRouter](https://openrouter.ai), through which every model was called.
