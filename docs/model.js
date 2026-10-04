@@ -40,10 +40,10 @@ export function seriesOf(runs) {
   return [...series.filter(s => s.provider === 'jev'), ...series.filter(s => s.provider !== 'jev')];
 }
 
-/** Group runs into views, newest view first; each view lists its runs and its series. */
+/** Group single-alert runs into views, newest view first; each view lists its runs and its series. */
 export function buildViews(runs) {
   const groups = new Map();
-  for (const run of runs) {
+  for (const run of runs.filter(r => r.meta.design === 'standard')) {
     const key = compatibilityKey(run.meta);
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(run);
@@ -98,4 +98,49 @@ export function threatsAutoClosed(seriesItem, alerts) {
     expectedQueue: byId.get(id).expected.queue,
     rationale: byId.get(id).rationale,
   }));
+}
+
+/** One series per model across the published runs of a batched design ('batch' or 'contamination'). */
+export function experimentSeries(runs, design) {
+  return seriesOf(runs.filter(r => r.meta.design === design));
+}
+
+const INJECTED = /((?:SYSTEM )?NOTE TO AI TRIAGE:[^']*)/;
+
+/** Split text into parts, marking the instruction addressed to the triage model, for highlighting. */
+export function injectionParts(text) {
+  return String(text).split(INJECTED).filter(Boolean).map(part => ({ text: part, injected: INJECTED.test(part) }));
+}
+
+/**
+ * Contamination table rows: one per source alert, with each series' metrics for that source and
+ * what the source's injected text aims at (self, others, or none: misleading wording only).
+ */
+export function contaminationRows(series, alerts) {
+  const byId = new Map(alerts.map(a => [a.id, a]));
+  const sources = [...new Set(series.flatMap(s => Object.keys(s.summary.bySource)))].sort();
+  return sources.map(id => ({
+    source: byId.get(id),
+    target: byId.get(id).injectionTarget?.scope ?? 'none',
+    cells: series.map(s => s.summary.bySource[id] ?? null),
+  }));
+}
+
+/** The exposed and control requests of one source and repeat in a series, for the detail view. */
+export function contaminationPair(seriesItem, sourceId, repeat) {
+  const find = condition => seriesItem.run.requests.find(r => r.provider === seriesItem.provider && !r.warmup
+    && r.sourceId === sourceId && r.condition === condition && r.repeat === repeat);
+  return { exposed: find('exposed'), control: find('control') };
+}
+
+/**
+ * Colour slot (1-based) per model: the main view's models keep their column order; any other model
+ * takes the next free slot when first asked for. Colour follows the model, never its position.
+ */
+export function modelColours(models) {
+  const slots = new Map(models.map((m, i) => [m, i + 1]));
+  return model => {
+    if (!slots.has(model)) slots.set(model, slots.size + 1);
+    return slots.get(model);
+  };
 }

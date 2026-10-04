@@ -11,6 +11,7 @@
   --series-1: #2a78d6;
   --series-2: #eb6834;
   --series-3: #1baf7a;
+  --series-4: #eda100;
   --act-1: #184f95;
   --act-2: #86b6ef;
   --act-3: #c3c2b7;
@@ -33,6 +34,7 @@
     --series-1: #3987e5;
     --series-2: #d95926;
     --series-3: #199e70;
+    --series-4: #c98500;
     --act-1: #3987e5;
     --act-2: #b7d3f6;
     --act-3: #898781;
@@ -162,3 +164,6 @@ pre { white-space: pre-wrap; overflow-wrap: anywhere; background: var(--page); p
 .cards > *, .charts-row > *, .matrices > * { min-width: 0; }
 select { max-width: 100%; }
 .view-picker { flex-wrap: wrap; max-width: 100%; }
+
+mark { background: var(--banner); color: inherit; outline: 1px solid var(--bad); border-radius: 2px; }
+.chart .s4 { fill: var(--series-4); stroke: var(--series-4); }

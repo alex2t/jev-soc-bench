@@ -3,7 +3,8 @@
  * never as HTML: alert states contain attacker-style text (plan.md section 9).
  */
 
-import { buildViews, viewLabel, threatsAutoClosed } from './model.js';
+import { buildViews, viewLabel, threatsAutoClosed, modelColours } from './model.js';
+import { drawBatching, drawContamination } from './experiment.js';
 import { drawDifficulty, drawLatency, drawCalibration, drawAutomation } from './charts.js';
 import { drawAlerts } from './alerts.js';
 import { el, pct, ms, usd, swatch } from './dom.js';
@@ -127,9 +128,13 @@ async function main() {
   const status = document.getElementById('status');
   try {
     const index = await loadJson('data/runs.json');
-    const [alerts, ...runs] = await Promise.all([loadJson('data/alerts.json'), ...index.map(r => loadJson(`data/${r.runId}.json`))]);
+    const [alerts, comparisons, ...runs] = await Promise.all([loadJson('data/alerts.json'), loadJson('data/comparisons.json'),
+      ...index.map(r => loadJson(`data/${r.runId}.json`))]);
     const views = buildViews(runs);
     if (!views.length) throw new Error('no published run');
+    const colourOf = modelColours(views[0].series.map(s => s.model));
+    drawBatching(runs, comparisons, colourOf);
+    drawContamination(runs, alerts.alerts, colourOf);
     const picker = document.getElementById('view');
     picker.replaceChildren(...views.map((v, i) => el('option', { value: String(i) }, viewLabel(v))));
     picker.addEventListener('change', () => render(views[Number(picker.value)], alerts.alerts));
