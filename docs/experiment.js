@@ -46,9 +46,9 @@ function positionChart(series, colourOf) {
   const groups = series[0].run.summary.batch[series[0].provider].positionEffect.map(g => g.positions);
   const W = 720, H = 240, left = 44, right = W - 8, top = 16, height = 180;
   const root = svg('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': 'Queue accuracy by position in the batch' });
-  const lo = 0.5;
+  const lo = 0;
   const y = v => top + height * (1 - (v - lo) / (1 - lo));
-  for (const v of [0.5, 0.75, 1]) {
+  for (const v of [0, 0.25, 0.5, 0.75, 1]) {
     root.append(svg('line', { class: v === lo ? 'axis' : 'grid', x1: left, x2: right, y1: y(v), y2: y(v) }),
       svg('text', { x: left - 6, y: y(v) + 4, 'text-anchor': 'end' }, `${v * 100}%`));
   }
@@ -76,7 +76,7 @@ function legend(series, colourOf) {
 
 export function drawBatching(runs, comparisons, colourOf) {
   const target = document.getElementById('batching-body');
-  const series = experimentSeries(runs, 'batch');
+  const series = experimentSeries(runs, 'batch').sort((a, b) => colourOf(a.model) - colourOf(b.model));
   const entries = comparisons.filter(c => c.comparison).sort((a, b) => colourOf(a.model) - colourOf(b.model));
   if (!series.length) return target.replaceChildren(el('p', { class: 'note' }, 'No batch run is published yet.'));
   const runsById = new Map(runs.map(r => [r.meta.runId, r]));
@@ -86,7 +86,7 @@ export function drawBatching(runs, comparisons, colourOf) {
       + 'with the order rotated by 3 positions per repeat. Arrows read single -> batched.'),
     comparisonTable(entries, runsById),
     el('h3', {}, 'Queue accuracy by position in the batch'),
-    el('p', { class: 'note' }, 'A drop at later positions would be a long-context weakness. The axis starts at 50%.'),
+    el('p', { class: 'note' }, 'A drop at later positions would be a long-context weakness.'),
     legend(series, colourOf),
     el('div', { class: 'chart' }, positionChart(series, colourOf)));
 }
@@ -125,7 +125,7 @@ function contaminationDetail(row, series, alerts) {
 
 export function drawContamination(runs, alerts, colourOf) {
   const target = document.getElementById('contamination-body');
-  const series = experimentSeries(runs, 'contamination');
+  const series = experimentSeries(runs, 'contamination').sort((a, b) => colourOf(a.model) - colourOf(b.model));
   if (!series.length) return target.replaceChildren(el('p', { class: 'note' }, 'No contamination run is published yet.'));
   const rows = contaminationRows(series, alerts);
   const cell = c => (c ? el('td', { class: c.dangerousDowngrades.count || c.queueFlipRate.flips ? 'wrong' : '' },
