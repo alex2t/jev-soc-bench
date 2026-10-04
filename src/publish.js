@@ -5,7 +5,9 @@
  */
 
 import { summarize } from './metrics.js';
+import { batchSummary, contaminationSummary } from './batch-metrics.js';
 import { inputsSha256, labelsSha256 } from './dataset.js';
+import { normaliseUsage } from './providers/jev.js';
 
 const KEY_PATTERN = /sk-or-v1-[0-9a-f]{32,}/i;
 const short = h => String(h).slice(0, 12);
@@ -19,6 +21,31 @@ function runInputs(meta, datasetAtHash) {
   const used = datasetAtHash(meta.datasetSha256);
   if (!used) throw new Error(`cannot find the dataset version this run used (file sha256 ${short(meta.datasetSha256)})`);
   return inputsSha256(used);
+}
+
+/** The summary for the run's design, from its records (and requests, for batched designs). */
+function recompute(run, ctx) {
+  if (run.meta.design === 'contamination') return contaminationSummary(run.records, run.requests);
+  const summary = summarize(run.records, ctx.dataset.alerts, ctx.questions);
+  return run.meta.design === 'batch' ? { ...summary, batch: batchSummary(run.records, run.requests) } : summary;
+}
+
+/**
+ * Records made before F-43 have no `usage.cachedInputTokens`; take it from the raw response kept in
+ * the record (single alert) or in its request (batched, divided by the batch size). Returns the
+ * records and how many were filled.
+ */
+function backfillCachedTokens(run) {
+  const requests = new Map((run.requests ?? []).map(q => [`${q.provider}|${q.batchId}`, q]));
+  let filled = 0;
+  const records = run.records.map(r => {
+    if (!r.usage || 'cachedInputTokens' in r.usage) return r;
+    const request = requests.get(`${r.provider}|${r.batchId}`);
+    const cached = normaliseUsage((r.rawResponse ?? request?.rawResponse)?.usage)?.cachedInputTokens ?? null;
+    filled++;
+    return { ...r, usage: { ...r.usage, cachedInputTokens: cached === null || !request ? cached : cached / r.batchSize } };
+  });
+  return { records, filled };
 }
 
 /**
@@ -36,11 +63,13 @@ export function preparePublication(run, ctx) {
   const inputs = runInputs(meta, ctx.datasetAtHash);
   if (inputs !== inputsSha256(ctx.dataset)) throw new Error('alert states sent in this run differ from the current dataset');
 
-  const summary = summarize(run.records, ctx.dataset.alerts, ctx.questions);
+  const { records, filled } = backfillCachedTokens(run);
+  const summary = recompute({ ...run, records }, ctx);
   if (summary.warnings.length) throw new Error(`warnings after recomputing the summary: ${summary.warnings.join('; ')}`);
 
   const published = {
     ...run,
+    records,
     meta: {
       ...meta,
       datasetInputsSha256: inputs,
@@ -48,6 +77,7 @@ export function preparePublication(run, ctx) {
       summaryComputedAt: ctx.now.toISOString(),
       summaryGitCommit: ctx.gitCommit,
       publishedPartial: Boolean(stopped),
+      ...(filled ? { usageBackfill: `cachedInputTokens for ${filled} records taken from rawResponse at publication (F-43)` } : {}),
     },
     summary,
     runSummary: run.runSummary ?? run.summary,
