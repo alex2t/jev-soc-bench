@@ -1,12 +1,15 @@
 # CLAUDE.md - jev-soc-bench
 
 Benchmark (run locally) and a static public dashboard on GitHub Pages comparing TypeSafe
-Jev with a generative LLM (`openai/gpt-4o-mini`) on SOC alert triage, both called through
-OpenRouter.
+Jev with generative LLMs (`openai/gpt-4o-mini` and `openai/gpt-5.6-sol`) on SOC alert
+triage, all called through OpenRouter. The LLM is chosen by `LLM_MODEL`; its request
+settings live in `config/models.json`.
 
 The full specification is `plan.md` at the repository root. Read it before starting any
-work. Build milestone by milestone (plan.md section 10) and stop at the end of each
-milestone to report. `plan.md` is local only and is never committed.
+work; it opens with a "Status for the next session" section (current state, next steps,
+runs that matter, environment notes). Build milestone by milestone (plan.md section 10)
+and stop at the end of each milestone to report. `plan.md` is local only and is never
+committed.
 
 You maintain plan.md: keep it in line with the code and with decisions I have approved,
 and add a revision note at the top for every change, citing the F-numbers involved.
@@ -19,14 +22,15 @@ disagreement in issue.md instead.
 
 - **JavaScript only.** ES modules, Node.js 22.9 or later. No Python, no TypeScript, no
   build step. Zero runtime dependencies; `@playwright/test` is the only dev dependency.
-- **Never commit or push `.env`, `plan.md` or `issue.md`.** They are listed in
-  `.gitignore`. Before every commit, run `git status` and
-  `git check-ignore -v .env plan.md issue.md`; all three must be reported as ignored and
-  none may appear as staged. Stage files by name rather than with `git add -A`.
+- **Never commit or push `.env`, `plan.md`, `issue.md`, `llm.md` or `tests/`.** They are
+  local only and listed in `.gitignore`. Before every commit, run `git status` and
+  `git check-ignore -v .env plan.md issue.md llm.md tests/`; all must be reported as
+  ignored and none may appear as staged. Stage files by name rather than with
+  `git add -A`.
 - **No paid API calls** except the ones a milestone explicitly calls for (M2 smoke test,
   M5 full run, M8 batching experiment, M9 second LLM baseline), and only when the owner
-  asks for them in the current session. Tests never touch the network; providers are tested with an injected
-  `fetchImpl`.
+  asks for them in the current session. Tests never touch the network; providers are
+  tested with an injected `fetchImpl`.
 - **The OpenRouter key never leaves the server side.** It must not appear in logs, error
   messages, results files, the browser, or committed files.
 - **Synthetic data only.** IPs from the RFC 5737 documentation ranges, `example.com` /
