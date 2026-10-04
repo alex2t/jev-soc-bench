@@ -1,6 +1,8 @@
 /** CLI benchmark runner (plan.md section 7). See `npm run bench -- --dry-run` for the plan. */
 
-import { readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { estimateCost } from '../src/estimate.js';
 import { execFileSync } from 'node:child_process';
 import { randomInt } from 'node:crypto';
 import { createInterface } from 'node:readline/promises';
@@ -103,6 +105,41 @@ function llmSettings(opts, inputs, env) {
   }
 }
 
+/** Past local results files in the output folder; unreadable ones are reported, not hidden. */
+function loadRuns(dir) {
+  if (!existsSync(dir)) return { runs: [], skipped: [] };
+  const runs = [];
+  const skipped = [];
+  for (const file of readdirSync(dir).filter(f => /^run-.*\.json$/.test(f))) {
+    try {
+      runs.push(JSON.parse(readFileSync(join(dir, file), 'utf8')));
+    } catch {
+      skipped.push(file);
+    }
+  }
+  return { runs, skipped };
+}
+
+/** Plan lines with the measured cost estimate per provider and the total against --max-usd (F-35). */
+function estimateLines(opts, models, settings, callsPerProvider) {
+  const { runs, skipped } = loadRuns(opts.out);
+  const plans = Object.fromEntries(opts.providers.map(p => [p, {
+    model: models[p], settings: p === 'llm' ? settings?.settings ?? null : null, calls: callsPerProvider,
+  }]));
+  const e = estimateCost(runs, plans, opts.maxUsd);
+  const lines = skipped.map(f => `  (skipped ${f}: not valid JSON)`);
+  for (const [p, est] of Object.entries(e.providers)) {
+    lines.push(est.perCallUsd === null
+      ? `  estimated cost ${p}: ${est.reason}`
+      : `  estimated cost ${p}: $${est.totalUsd.toFixed(4)} (${est.calls} calls at $${est.perCallUsd.toFixed(7)} measured in ${est.source}${est.note ? `; ${est.note}` : ''})`);
+  }
+  lines.push(e.totalUsd === null
+    ? 'Estimated total: unknown; set --max-usd from a smoke test or a small run'
+    : `Estimated total: $${e.totalUsd.toFixed(4)} (--max-usd ${opts.maxUsd})`);
+  if (e.exceedsMaxUsd) lines.push(`WARNING: estimated total $${e.totalUsd.toFixed(4)} exceeds --max-usd ${opts.maxUsd}; the run would stop early`);
+  return lines;
+}
+
 function planLines(opts, inputs, models, missing, settings) {
   const alerts = selectAlerts(inputs.dataset.alerts, { ids: opts.alertIds, limit: opts.limit });
   const perProvider = alerts.length * opts.repeats;
@@ -114,6 +151,7 @@ function planLines(opts, inputs, models, missing, settings) {
     ...(settings ? [settings.error ? `  ${settings.error}` : `  llm request settings: ${JSON.stringify(settings.settings)}`] : []),
     `Total calls: ${opts.providers.length * (perProvider + 1)}`,
     `Budget guard: ${opts.mock ? 'off (mock)' : `on, --max-usd ${opts.maxUsd}; stops on any response without a cost`}`,
+    ...(opts.mock ? [] : estimateLines(opts, models, settings, perProvider + 1)),
     `Dataset sha256 ${inputs.provenance.datasetSha256.slice(0, 12)}, labelled by ${inputs.dataset.labelledBy ?? 'NOT REVIEWED'}`,
     `Questions sha256 ${inputs.provenance.questionsSha256.slice(0, 12)}, git ${inputs.provenance.gitCommit ?? 'unknown'}`,
     ...(missing.length ? [`Missing environment variable(s) for a live run: ${missing.join(', ')}`] : []),
