@@ -28,6 +28,7 @@ async function capture(baseUrl, outDir) {
     page.on('request', req => { if (!req.url().startsWith(baseUrl)) problems.push(`external request: ${req.url()}`); });
     await page.goto(baseUrl);
     await page.locator('#main').waitFor({ state: 'visible' });
+    if ((await page.locator('body').innerText()).includes('[object ')) problems.push('page shows "[object ...]": a list was appended as text');
     for (const [name, selector] of Object.entries(SHOTS)) {
       await page.locator(selector).screenshot({ path: join(outDir, name) });
     }
