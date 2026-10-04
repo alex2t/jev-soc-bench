@@ -5,7 +5,7 @@
  */
 
 import { summarize } from './metrics.js';
-import { batchSummary, contaminationSummary } from './batch-metrics.js';
+import { batchSummary, contaminationSummary, compareRuns } from './batch-metrics.js';
 import { inputsSha256, labelsSha256 } from './dataset.js';
 import { normaliseUsage } from './providers/jev.js';
 
@@ -93,6 +93,8 @@ export function runIndex(runs) {
       runId: meta.runId,
       label: meta.label,
       startedAt: meta.startedAt,
+      design: meta.design,
+      batchSize: meta.batchSize,
       providers: Object.keys(summary.providers).sort(),
       requestedModels: meta.requestedModels,
       returnedModels: meta.returnedModels,
@@ -105,4 +107,27 @@ export function runIndex(runs) {
       summaryComputedAt: meta.summaryComputedAt,
     }))
     .sort((a, b) => String(b.startedAt).localeCompare(String(a.startedAt)));
+}
+
+const compatible = (a, b) => ['questionsSha256', 'datasetInputsSha256', 'scoredWithLabelsSha256'].every(k => a.meta[k] === b.meta[k]);
+
+/**
+ * Single vs batched comparisons for docs/data/comparisons.json (section 13): for each published
+ * batch run and provider, the newest standard run measuring the same model on the same questions,
+ * inputs and labels. A model without such a run is listed with `singleRunId: null`.
+ */
+export function comparisonIndex(runs) {
+  const standard = runs.filter(r => r.meta.design === 'standard')
+    .sort((a, b) => String(b.meta.startedAt).localeCompare(String(a.meta.startedAt)));
+  return runs.filter(r => r.meta.design === 'batch').flatMap(batch => Object.keys(batch.summary.providers).map(provider => {
+    const model = batch.meta.requestedModels[provider];
+    const single = standard.find(s => s.meta.requestedModels[provider] === model && compatible(s, batch));
+    return {
+      batchRunId: batch.meta.runId,
+      provider,
+      model,
+      singleRunId: single?.meta.runId ?? null,
+      comparison: single ? compareRuns(single, batch)[provider] : null,
+    };
+  }));
 }

@@ -8,7 +8,7 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 
 import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
 import { parseArgs } from 'node:util';
-import { preparePublication, runIndex } from '../src/publish.js';
+import { preparePublication, runIndex, comparisonIndex } from '../src/publish.js';
 import { sha256 } from '../src/util.js';
 
 function git(...args) {
@@ -72,7 +72,8 @@ function main() {
   writeFileSync(join(data, 'alerts.json'), `${JSON.stringify(dataset, null, 2)}\n`);
   const runs = readdirSync(data).filter(f => /^run-.*\.json$/.test(f)).map(f => JSON.parse(readFileSync(join(data, f), 'utf8')));
   writeFileSync(join(data, 'runs.json'), `${JSON.stringify(runIndex(runs), null, 2)}\n`);
-  console.log(`Written to ${data}: ${runId}.json, alerts.json, runs.json (${runs.length} run(s)). Review with git diff, then commit.`);
+  writeFileSync(join(data, 'comparisons.json'), `${JSON.stringify(comparisonIndex(runs), null, 2)}\n`);
+  console.log(`Written to ${data}: ${runId}.json, alerts.json, runs.json, comparisons.json (${runs.length} run(s)). Review with git diff, then commit.`);
 }
 
 try {
