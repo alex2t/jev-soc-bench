@@ -8,7 +8,7 @@ import { checkDataset } from './dataset.js';
 import { summarize } from './metrics.js';
 import { seededRandom, shuffle, runPool } from './util.js';
 
-const NORMALISE = {
+export const NORMALISE = {
   jev: (questions, res) => normaliseJev(questions, res.raw),
   llm: (questions, res) => normaliseLlm(questions, res.text),
 };
