@@ -1,7 +1,8 @@
 # CLAUDE.md - jev-soc-bench
 
-Local benchmark and dashboard comparing TypeSafe Jev with a generative LLM
-(`openai/gpt-4o-mini`) on SOC alert triage, both called through OpenRouter.
+Benchmark (run locally) and a static public dashboard on GitHub Pages comparing TypeSafe
+Jev with a generative LLM (`openai/gpt-4o-mini`) on SOC alert triage, both called through
+OpenRouter.
 
 The full specification is `plan.md` at the repository root. Read it before starting any
 work. Build milestone by milestone (plan.md section 10) and stop at the end of each
@@ -44,8 +45,9 @@ disagreement in issue.md instead.
    and passes after it.
 3. If the change touches the runner, providers, engine, policy or metrics, also run
    `npm run bench:mock` and confirm it completes and writes a valid results file.
-4. If the change touches the server or dashboard, run the server tests and start the
-   server once (`npm start`) to confirm it serves the page.
+4. If the change touches the dashboard site (`docs/`), the publish script or the preview
+   server, run the site, publish and server tests and start the preview once (`npm start`)
+   to confirm it serves the page.
 5. Run `git status` and confirm no ignored file is staged.
 
 Never report a task as done with failing tests. Never skip, delete or weaken a test to
@@ -155,7 +157,9 @@ the conversation.
 | `npm run smoke` | One live call per provider, prints raw responses | 2 |
 | `npm run bench -- --dry-run` | Prints the run plan, no network | 0 |
 | `npm run bench` | Full live benchmark (asks for confirmation) | see plan.md |
-| `npm start` | Local dashboard on 127.0.0.1 | 0 unless `--allow-live` |
+| `npm run check:dataset` | Validate the dataset | 0 |
+| `npm run publish -- <runId>` | Verify a run, recompute its summary, write `docs/data/` | 0 |
+| `npm start` | Local read-only preview of `docs/` on 127.0.0.1 | 0 |
 
 ---
 
