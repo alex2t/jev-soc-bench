@@ -5,12 +5,13 @@
   "type": "module",
   "engines": { "node": ">=22.9" },
   "scripts": {
-    "start": "node --env-file-if-exists=.env server.js",
+    "start": "node server.js",
     "smoke": "node --env-file-if-exists=.env bench/smoke.js",
     "bench": "node --env-file-if-exists=.env bench/run.js",
     "bench:mock": "node bench/run.js --mock --yes",
     "test": "node scripts/run-tests.js",
     "check:dataset": "node bench/check-dataset.js",
+    "publish": "node scripts/publish.js",
     "screenshots": "node scripts/screenshots.js"
   },
   "devDependencies": { "@playwright/test": "^1.55.0" }
