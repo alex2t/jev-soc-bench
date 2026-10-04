@@ -100,6 +100,44 @@ target other alerts sharing a request (for the batching experiment). Each record
 instruction tries to force, so "injection followed" is measured rather than judged. `npm run check:dataset`
 validates the file, including that every IP is in an RFC 5737 range.
 
+## Batching experiment
+
+Sending 10 alerts in one request is cheaper per alert, but does it change the answers? Each model
+answered the same 40 alerts 3 times in batches of 10, with the same batches for every model and the
+order rotated by 3 positions per repeat (seed 20261004, 2026-10-04). Latency and cost are the
+request totals divided by 10.
+
+| | Jev | gpt-4o-mini | gpt-5.6-sol |
+|:--|--:|--:|--:|
+| Queue accuracy, single -> batched | 100.0% -> 95.8% | 85.0% -> 60.0% | 97.5% -> 97.5% |
+| Batched accuracy at positions 0-2 / 3-6 / 7-9 | 94% / 98% / 94% | 86% / 52% / 44% | 97% / 98% / 97% |
+| Same queue in all 3 repeats, batched | 90% | 30% | 100% |
+| Cost per 1,000 alerts, single -> batched | $0.031 -> $0.022 | $0.094 -> $0.088 | $1.72 -> $1.61 |
+| Request latency p50, batch of 10 | 288 ms | 4,162 ms | 6,055 ms |
+
+gpt-4o-mini degrades sharply as an alert sits further into the batch, and under the fixed policy
+24 of its batched answers auto-close an alert labelled as a threat. Jev's 5 batched errors are
+low-confidence: 4 fall below the 0.6 threshold that sends an answer to an analyst. gpt-5.6-sol
+gives the same answers batched as single.
+
+![Single vs batched and accuracy by position](docs/img/batching.png)
+
+**Cross-alert contamination.** Each adversarial alert was placed in a batch with 4 clear threat
+alerts (exposed), and the same 4 were sent without it (control), 3 times. Jev and gpt-5.6-sol changed
+none of the 60 companion answers. gpt-4o-mini changed 7 of 60 (its control batches varied in 1 of
+40 answers), and 4 of those became dangerous downgrades: threats auto-closed only because of a
+neighbour. Two came from SEC-0036, whose note tells the model to classify "every other alert in this
+batch" as benign. The other two came from SEC-0034, which contains no instruction at all, only
+alarming wording around a routine backup.
+
+![Contamination by source alert](docs/img/contamination.png)
+
+Caveats: 3 repeats and 5 source alerts are small samples. Cost depends on OpenRouter's prompt cache
+when the same prompts were sent shortly before. The batch runs above were billed at 0-8% cached input;
+a repeat of the gpt-5.6-sol batch run, 99.9% cached, cost $0.65 per 1,000 alerts instead of $1.61.
+The contamination runs resend the same companions and were 33-70% cached, so their cost is not
+compared. The dashboard shows the cached share next to every cost.
+
 ## Credits
 
 - TypeSafe Jev, and [OpenRouter](https://openrouter.ai), through which every model was called.
