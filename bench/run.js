@@ -11,8 +11,9 @@ import { callJev } from '../src/providers/jev.js';
 import { callLlm } from '../src/providers/llm.js';
 import { mockJev, mockLlm } from '../src/providers/mock.js';
 import { runBenchmark, selectAlerts, writeResults } from '../src/runner.js';
+import { runBatchBenchmark, batchTasks, contaminationTasks } from '../src/batch-run.js';
 import { inputsSha256, labelsSha256 } from '../src/dataset.js';
-import { formatSummary } from '../src/report.js';
+import { formatSummary, formatContamination } from '../src/report.js';
 import { requestSettings } from '../src/models.js';
 import { requireEnv, sha256 } from '../src/util.js';
 
@@ -44,9 +45,9 @@ function positiveInt(name, text) {
 
 function parseOptions(argv) {
   const { values } = parseArgs({ args: argv, options: OPTIONS, strict: true });
-  if (values['batch-size'] !== '1' || values.contamination) {
-    throw new Error('--batch-size above 1 and --contamination are the M8 experiment (plan.md section 13), not built yet');
-  }
+  const batchSize = positiveInt('batch-size', values['batch-size']);
+  if (values.contamination && batchSize !== 1) throw new Error('--contamination builds its own batches; do not combine it with --batch-size');
+  if (values.contamination && (values.alerts || values.limit)) throw new Error('--contamination uses the whole dataset; --alerts and --limit do not apply');
   const providers = values.providers.split(',').map(p => p.trim());
   const unknown = providers.filter(p => !KNOWN_PROVIDERS.includes(p));
   if (unknown.length || new Set(providers).size !== providers.length) {
@@ -67,6 +68,8 @@ function parseOptions(argv) {
     dryRun: values['dry-run'],
     yes: values.yes,
     mock: values.mock,
+    batchSize,
+    design: values.contamination ? 'contamination' : batchSize > 1 ? 'batch' : 'standard',
   };
 }
 
@@ -144,18 +147,37 @@ function estimateLines(opts, models, settings, callsPerProvider) {
   return lines;
 }
 
+/** Requests and alert answers per provider for the chosen design (section 13 for batches). */
+function workload(opts, alerts) {
+  if (opts.design === 'standard') return { requests: alerts.length * opts.repeats, answers: alerts.length * opts.repeats };
+  const tasks = opts.design === 'batch'
+    ? batchTasks(alerts, opts.batchSize, ['p'], opts.repeats, opts.seed)
+    : contaminationTasks(alerts, ['p'], opts.repeats, opts.seed);
+  return { requests: tasks.length, answers: tasks.reduce((s, t) => s + t.alerts.length, 0), warmupAnswers: tasks[0].alerts.length };
+}
+
+function designLine(opts) {
+  if (opts.design === 'batch') return [`Design: batch, ${opts.batchSize} alerts per request, order rotated by 3 per repeat; latency and cost apportioned per alert`];
+  if (opts.design === 'contamination') return ['Design: contamination, each adversarial alert with 4 companions (exposed) vs the companions alone (control)'];
+  return [];
+}
+
 function planLines(opts, inputs, models, missing, settings) {
   const alerts = selectAlerts(inputs.dataset.alerts, { ids: opts.alertIds, limit: opts.limit });
-  const perProvider = alerts.length * opts.repeats;
+  const work = workload(opts, alerts);
+  const perProvider = work.requests;
+  const answers = work.answers + (work.warmupAnswers ?? 1);
   return [
     opts.mock ? 'Mode: MOCK (no model is called, no key needed)' : 'Mode: LIVE (paid calls through OpenRouter)',
     `Label: ${opts.label ?? 'none'}`,
+    ...designLine(opts),
     `Alerts: ${alerts.length} (${alerts[0].id} .. ${alerts.at(-1).id}), repeats ${opts.repeats}, concurrency ${opts.concurrency}, seed ${opts.seed}`,
-    ...opts.providers.map(p => `  ${p}: ${perProvider} calls + 1 warm-up, model ${models[p] ?? 'MISSING'}`),
+    ...opts.providers.map(p => `  ${p}: ${perProvider} ${opts.design === 'standard' ? 'calls' : `requests (${work.answers} alert answers)`} + 1 warm-up, model ${models[p] ?? 'MISSING'}`),
     ...(settings ? [settings.error ? `  ${settings.error}` : `  llm request settings: ${JSON.stringify(settings.settings)}`] : []),
-    `Total calls: ${opts.providers.length * (perProvider + 1)}`,
+    `Total ${opts.design === 'standard' ? 'calls' : 'requests'}: ${opts.providers.length * (perProvider + 1)}`,
     `Budget guard: ${opts.mock ? 'off (mock)' : `on, --max-usd ${opts.maxUsd}; stops on any response without a cost`}`,
-    ...(opts.mock ? [] : estimateLines(opts, models, settings, perProvider + 1)),
+    ...(opts.mock ? [] : estimateLines(opts, models, settings, answers)),
+    ...(opts.mock || opts.design === 'standard' ? [] : ['  (batched estimate: measured cost per alert answer x alert answers; batching may change it)']),
     `Dataset sha256 ${inputs.provenance.datasetSha256.slice(0, 12)}, labelled by ${inputs.dataset.labelledBy ?? 'NOT REVIEWED'}`,
     `Questions sha256 ${inputs.provenance.questionsSha256.slice(0, 12)}, git ${inputs.provenance.gitCommit ?? 'unknown'}`,
     ...(missing.length ? [`Missing environment variable(s) for a live run: ${missing.join(', ')}`] : []),
@@ -199,17 +221,18 @@ async function main() {
     return;
   }
   const { models, calls } = providerCalls(opts, env, settings?.settings);
-  const result = await runBenchmark({
+  const run = opts.design === 'standard' ? runBenchmark : args => runBatchBenchmark({ ...args, design: opts.design });
+  const result = await run({
     ...inputs,
     providers: Object.fromEntries(opts.providers.map(p => [p, calls[p]])),
     models: Object.fromEntries(opts.providers.map(p => [p, models[p]])),
     options: { repeats: opts.repeats, concurrency: opts.concurrency, maxUsd: opts.maxUsd, seed: opts.seed,
-      mock: opts.mock, label: opts.label, alertIds: opts.alertIds, limit: opts.limit,
+      mock: opts.mock, label: opts.label, alertIds: opts.alertIds, limit: opts.limit, batchSize: opts.batchSize,
       requestSettings: settings ? { llm: settings.settings } : null },
   });
   const path = writeResults(opts.out, result);
   console.log('');
-  for (const line of formatSummary(result)) console.log(line);
+  for (const line of (opts.design === 'contamination' ? formatContamination : formatSummary)(result)) console.log(line);
   console.log(`\nResults written to ${path}`);
 }
 

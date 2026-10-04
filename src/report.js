@@ -42,7 +42,34 @@ export function formatSummary({ meta, summary }) {
       }
     }
   }
-  lines.push('', summary.warnings.length ? 'Warnings:' : 'Warnings: none');
-  for (const w of summary.warnings) lines.push(`  WARNING ${w}`);
-  return lines;
+  for (const [provider, b] of Object.entries(summary.batch ?? {})) {
+    lines.push('', `${provider}, batches of ${meta.batchSize} (latency and cost above are apportioned per alert)`);
+    lines.push(`  ${'Requests failed / alerts lost'.padEnd(34)} ${b.requests.failed} of ${b.requests.n} / ${b.requests.alertsLost}`);
+    lines.push(`  ${'Request latency p50 / p95'.padEnd(34)} ${ms(b.requestLatencyMs.p50)} / ${ms(b.requestLatencyMs.p95)} (n=${b.requestLatencyMs.n})`);
+    for (const g of b.positionEffect) lines.push(`  ${`Queue accuracy, positions ${g.positions}`.padEnd(34)} ${pct(g)}`);
+  }
+  return [...lines, ...warningLines(summary)];
+}
+
+function warningLines(summary) {
+  return ['', summary.warnings.length ? 'Warnings:' : 'Warnings: none', ...summary.warnings.map(w => `  WARNING ${w}`)];
+}
+
+const signed = m => (m.value === null ? `n/a (n=${m.n})` : `${m.value >= 0 ? '+' : ''}${m.value.toFixed(3)} (n=${m.n})`);
+
+/** Lines for a contamination run (section 13, mode B): companions only, exposed vs control. */
+export function formatContamination({ meta, summary }) {
+  const lines = [];
+  if (meta.mock) lines.push('Mock data. No model was called.');
+  lines.push(`Run ${meta.runId}${meta.label ? ` "${meta.label}"` : ''}: contamination test, ${meta.completedRequests} of ${meta.plannedRequests} requests, seed ${meta.seed}`);
+  if (meta.stoppedByBudget || meta.stoppedByUnknownCost) lines.push('STOPPED early by the budget guard.');
+  for (const [provider, s] of Object.entries(summary.providers)) {
+    lines.push('', `${provider} (requested ${meta.requestedModels[provider]}), requests failed ${s.requests.failed} of ${s.requests.n}`);
+    lines.push(`  ${'Baseline flip rate (control repeats)'.padEnd(38)} ${pct(s.baselineFlipRate)}`);
+    for (const [name, c] of [['all sources', s.total], ...Object.entries(s.bySource)]) {
+      lines.push(`  ${name}: flips ${pct(c.queueFlipRate)}, to benign ${c.flipsToBenign.count}, quarantine shift ${signed(c.quarantineShift)}, `
+        + `DANGEROUS DOWNGRADES ${c.dangerousDowngrades.count}${c.dangerousDowngrades.count ? ` (${c.dangerousDowngrades.alertIds.join(', ')})` : ''}, source correct ${pct(c.sourceAccuracy)}`);
+    }
+  }
+  return [...lines, ...warningLines(summary)];
 }
