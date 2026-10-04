@@ -14,5 +14,5 @@
     "publish": "node scripts/publish.js",
     "screenshots": "node scripts/screenshots.js"
   },
-  "devDependencies": { "@playwright/test": "^1.55.0" }
+  "devDependencies": { "@playwright/test": "^1.63.0" }
 }
